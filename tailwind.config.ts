@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        minecraft: ["Minecraft", "sans-serif"],
+        "minecraft-bold": ["MinecraftBold", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -16,5 +20,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  important: true,
 };
 export default config;
