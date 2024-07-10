@@ -52,3 +52,128 @@
   --border-color: #ffffff;
   --shadow-color: #ffffff;
 }
+
+.nes-balloon {
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  margin: 8px;
+  margin-bottom: 30px;
+  background-color: #ffffff; /* Assuming $background-color is white */
+}
+
+.nes-balloon > :last-child {
+  margin-bottom: 0;
+}
+
+.nes-balloon::before,
+.nes-balloon::after {
+  position: absolute;
+  content: "";
+}
+
+.nes-balloon.is-dark {
+  border-radius: 0;
+  color: #ffffff; /* Assuming $background-color is white */
+  background: #000000; /* Assuming $base-color is black */
+  border-image-outset: 2;
+  box-shadow: 0 0 0 8px #000000; /* Assuming $base-color is black */
+}
+
+.nes-balloon.is-dark.from-left::before,
+.nes-balloon.is-dark.from-right::before {
+  background-color: #000000; /* Assuming $base-color is black */
+  border-color: #ffffff; /* Assuming $background-color is white */
+}
+
+.nes-balloon.is-dark.from-left::after,
+.nes-balloon.is-dark.from-right::after {
+  color: #ffffff; /* Assuming $background-color is white */
+  background-color: #000000; /* Assuming $base-color is black */
+}
+
+.nes-balloon.is-dark.from-left::before {
+  box-shadow: -5px 10px 0 6px #000000; /* Assuming $base-color is black */
+}
+
+.nes-balloon.is-dark.from-left::after {
+  box-shadow: -4px 0, 4px 0, -4px 4px #000000, 0 4px, -8px 4px, -4px 8px,
+    -8px 8px;
+}
+
+.nes-balloon.is-dark.from-right::before {
+  box-shadow: 5px 10px 0 6px #000000; /* Assuming $base-color is black */
+}
+
+.nes-balloon.is-dark.from-right::after {
+  box-shadow: -4px 0, 4px 0, 4px 4px #000000, 0 4px, 8px 4px, 4px 8px, 8px 8px;
+}
+
+.nes-balloon.from-left::before,
+.nes-balloon.from-left::after {
+  left: 2rem;
+}
+
+.nes-balloon.from-left::before {
+  bottom: -14px;
+  width: 26px;
+  height: 10px;
+  background-color: #ffffff; /* Assuming $background-color is white */
+  border-right: 4px solid #000000; /* Assuming $base-color is black */
+  border-left: 4px solid #000000; /* Assuming $base-color is black */
+}
+
+.nes-balloon.from-left::after {
+  bottom: -18px;
+  width: 18px;
+  height: 4px;
+  margin-right: 8px;
+  color: #000000; /* Assuming $base-color is black */
+  background-color: #ffffff; /* Assuming $background-color is white */
+  box-shadow: -4px 0, 4px 0, -4px 4px #ffffff, 0 4px, -8px 4px, -4px 8px,
+    -8px 8px;
+}
+
+.rounded-corners {
+  border-style: solid;
+  border-width: 4px; /* Assuming $border-size is 4px */
+  border-image-slice: 3;
+  border-image-width: 3;
+  border-image-repeat: stretch;
+  border-image-source: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(0,0,0)" /></svg>');
+  border-image-outset: 2;
+}
+
+.rounded-corners-dark {
+  border-style: solid;
+  border-width: 4px; /* Assuming $border-size is 4px */
+  border-image-slice: 3;
+  border-image-width: 3;
+  border-image-repeat: stretch;
+  border-image-source: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(255,255,255)" /></svg>');
+  border-image-outset: 0;
+}
+
+.nes-balloon.from-right::before,
+.nes-balloon.from-right::after {
+  right: 2rem;
+}
+
+.nes-balloon.from-right::before {
+  bottom: -14px;
+  width: 26px;
+  height: 10px;
+  background-color: #ffffff; /* Assuming $background-color is white */
+  border-right: 4px solid #000000; /* Assuming $base-color is black */
+  border-left: 4px solid #000000; /* Assuming $base-color is black */
+}
+
+.nes-balloon.from-right::after {
+  bottom: -18px;
+  width: 18px;
+  height: 4px;
+  margin-left: 8px;
+  background-color: #ffffff; /* Assuming $background-color is white */
+  box-shadow: -4px 0, 4px 0, 4px 4px #ffffff, 0 4px, 8px 4px, 4px 8px, 8px 8px;
+}

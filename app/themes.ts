@@ -18,7 +18,7 @@ export const themeColors: Record<ThemeOptions, ThemeColors> = {
     text: "black",
     border: "black",
     shadow: "#c381b5",
-    pageBg: "#d1c2ce",
+    pageBg: "#e8e3e7",
     cardBg: "#ffffff",
     textareaBg: "#ffffff",
   },

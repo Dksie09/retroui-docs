@@ -22,7 +22,7 @@ function Page() {
 
   return (
     <main
-      className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-32  bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32  bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
       style={{ backgroundColor: colors.pageBg, color: colors.text }}
     >
       <button
@@ -31,7 +31,7 @@ function Page() {
           router.push("/");
         }}
       >
-        <Image src="/logo.png" className="" alt="logo" width={20} height={20} />
+        <Image src="/logo.png" className="" alt="logo" width={25} height={25} />
         <h1 className="font-minecraft-bold">RetroUI</h1>
       </button>
       <div
@@ -56,46 +56,63 @@ function Page() {
       </div>
       <div className="">
         <h1 className="font-minecraft-bold text-5xl">Components</h1>
+
         <p className="mt-2">
           Each component is built to bring nostalgic charm to your modern web
           applications.
         </p>
         <div className="sm:flex mt-8 justify-between">
-          <div
-            className="p-0 font-minecraft-bold cursor-pointer"
-            onClick={() => {
-              router.push("/installation");
-            }}
-          >
-            <span className="border-b-2 border-black pb-1">
-              Project Setup &gt;
-            </span>
+          <div className=" flex">
+            <img
+              src="https://cdn.discordapp.com/emojis/838344630268461066.gif"
+              className="cursor-pointer"
+              onClick={() => {
+                router.push("/installation");
+              }}
+              alt="logo"
+            />
+            <div
+              className={`
+    nes-balloon h-16 py-1 text-center from-left 
+    ${
+      String(theme) === "dark"
+        ? "is-dark rounded-corners-dark"
+        : "rounded-corners"
+    }
+  `}
+            >
+              <p>
+                Click me
+                <br /> to setup your project
+              </p>
+            </div>
           </div>
+
           <div className="flex gap-2 sm:mt-0 mt-5">
             themes:
             <button
               onClick={() => setTheme("pop")}
               id="pop"
-              className="p-3 rounded-full border border-[#fefcd0] bg-[#c381b5]"
+              className="p-3 h-1 rounded-full border border-[#fefcd0] bg-[#c381b5]"
             ></button>
             <button
               onClick={() => setTheme("muddy")}
               id="muddy"
-              className="p-3 rounded-full border border-[#ddceb4] bg-[#62471f]"
+              className="p-3 h-1 rounded-full border border-[#ddceb4] bg-[#62471f]"
             ></button>
             <button
               onClick={() => setTheme("light")}
               id="light"
-              className="p-3 rounded-full border border-black bg-[#fffefd]"
+              className="p-3 h-1 rounded-full border border-black bg-[#fffefd]"
             ></button>
             <button
               onClick={() => setTheme("dark")}
               id="dark"
-              className="p-3 rounded-full border border-white bg-[#000000]"
+              className="p-3 h-1 rounded-full border border-white bg-[#000000]"
             ></button>
           </div>
         </div>
-        <div className="flex mt-16">
+        <div className="flex mt-10">
           <ComponentGrid theme={theme} />
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function Home() {
           router.push("/");
         }}
       >
-        <Image src="/logo.png" className="" alt="logo" width={20} height={20} />
+        <Image src="/logo.png" className="" alt="logo" width={25} height={25} />
         <h1 className="font-minecraft-bold">RetroUI</h1>
       </button>
       <div
@@ -36,7 +36,6 @@ export default function Home() {
           Star the repo
         </div>
       </div>
-      <div className=" flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
       <div className=" flex flex-col relative items-center">
         <Image
