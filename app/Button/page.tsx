@@ -44,6 +44,16 @@ function Page() {
 
   return (
     <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32  bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+      <div
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          backgroundImage:
+            "url('https://i.pinimg.com/originals/e7/50/86/e750869f635c22314b470aafd09f28e3.gif')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
       <button
         className="flex w-56 top-5 gap-1 left-8 absolute"
         onClick={() => {
@@ -188,27 +198,40 @@ function App() {
             >
               <div className="flex justify-between">
                 <div className="flex flex-col gap-1 absolute top-0 left-0">
-                  <p>Theme:</p>
+                  <p>
+                    Theme: <span className="font-bold">{selectedTheme}</span>
+                  </p>
                   {Object.keys(themeColors).map((theme) => (
-                    <button
-                      key={theme}
-                      onClick={() => handleThemeChange(theme as ThemeOptions)}
-                      className={`p-3 h-1 w-1 rounded-full border ${
-                        theme === selectedTheme ? "ring-2 ring-blue-500" : ""
-                      }`}
-                      style={{
-                        borderColor: themeColors[theme as ThemeOptions].border,
-                        backgroundColor: themeColors[theme as ThemeOptions].bg,
-                      }}
-                    ></button>
+                    <div key={theme} className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleThemeChange(theme as ThemeOptions)}
+                        className={`p-3 h-1 w-1 rounded-full border ${
+                          theme === selectedTheme ? "ring-2 ring-blue-500" : ""
+                        }`}
+                        style={{
+                          borderColor:
+                            themeColors[theme as ThemeOptions].border,
+                          backgroundColor:
+                            themeColors[theme as ThemeOptions].bg,
+                        }}
+                      ></button>
+                      {theme === selectedTheme && (
+                        <span className="text-sm capitalize">{theme}</span>
+                      )}
+                    </div>
                   ))}
-                  <button onClick={() => handleThemeChange("custom")}>
-                    <img
-                      src="./custom.png"
-                      className="h-6 w-6"
-                      alt="Custom colors"
-                    />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => handleThemeChange("custom")}>
+                      <img
+                        src="./custom.png"
+                        className="h-6 w-6"
+                        alt="Custom colors"
+                      />
+                    </button>
+                    {selectedTheme === "custom" && (
+                      <span className="text-sm">Custom</span>
+                    )}
+                  </div>
                 </div>
                 {selectedTheme === "custom" && (
                   <div className="flex flex-col gap-2 items-end absolute top-0 right-0">
