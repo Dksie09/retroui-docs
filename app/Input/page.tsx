@@ -41,7 +41,7 @@ function Page() {
   };
 
   return (
-    <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+    <main className="flex min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -104,7 +104,7 @@ function Page() {
         Back to Components
       </button>
 
-      <div className="">
+      <div className="z-10">
         <h1 className="font-minecraft-bold text-5xl">Input</h1>
         <p className="mt-4">
           A customizable, pixel-art styled input component with optional icon.
@@ -128,7 +128,10 @@ function App() {
 
         <div className="mt-12">
           <h1 className="font-minecraft-bold text-lg ml-2">Props</h1>
-          <Card className="w-full overflow-x-auto">
+          <Card
+            className="w-full overflow-x-auto bg-opacity-30 bg-white"
+            bg="transparent"
+          >
             <table className="min-w-full">
               <thead>
                 <tr className="border-b">
@@ -329,7 +332,7 @@ function App() {
             <CopyableCode
               code={`<Input
   className=" w-1/3"
-  bg="#aacf9b"
+  bg="#d1edda"
   textColor="#44573c"
   borderColor="#44573c"
   placeholder="Type something..."
@@ -339,7 +342,7 @@ function App() {
               <p className=" absolute top-2 left-2">Preview:</p>
               <Input
                 className=" w-1/3"
-                bg="#aacf9b"
+                bg="#d1edda"
                 textColor="#44573c"
                 borderColor="#44573c"
                 placeholder="Type something..."

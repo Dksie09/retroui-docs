@@ -56,7 +56,22 @@ function Page() {
     }
   };
   return (
-    <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-5 p-8 lg:p-16 xl:p-32">
+    <main className="flex min-h-screen font-minecraft flex-col w-full gap-5 p-8 lg:p-16 xl:p-32 relative overflow-hidden">
+      {/* Background div */}
+      <div
+        className="absolute inset-0 z-0 opacity-30"
+        style={{
+          backgroundImage:
+            "url('https://i.pinimg.com/474x/60/62/88/6062884f3e1904e2af6badeb4501d054.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+        }}
+      ></div>
       <button
         className="flex w-56 top-2 md:top-5 gap-1 left-2 md:left-8 absolute"
         onClick={() => {
@@ -116,7 +131,7 @@ function Page() {
       </div>
       {/* ------------------------------------------ */}
 
-      <div className="mt-16 md:mt-0">
+      <div className="mt-16 md:mt-0 z-10">
         <h1 className="font-minecraft-bold text-3xl md:text-5xl">Setup</h1>
         <p className="mt-2 md:mt-4 text-sm md:text-base">
           Get started with RetroUI in just a few simple steps.
@@ -402,7 +417,7 @@ export default App;`}
               >
                 open an issue
               </a>{" "}
-              on GitHub or say hi on{" "}
+              on GitHub or drop a dm on{" "}
               <a href="https://x.com/duckwhocodes" className="underline">
                 Twitter
               </a>

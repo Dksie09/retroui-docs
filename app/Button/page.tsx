@@ -48,7 +48,7 @@ function Page() {
         className="absolute inset-0 z-0 opacity-20"
         style={{
           backgroundImage:
-            "url('https://i.pinimg.com/originals/e7/50/86/e750869f635c22314b470aafd09f28e3.gif')",
+            "url('https://i.pinimg.com/564x/fa/66/27/fa662786798d35f4d86572ab79621d0a.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -105,7 +105,7 @@ function Page() {
         Back to Components
       </button>
 
-      <div className="">
+      <div className="z-10">
         <h1 className="font-minecraft-bold text-5xl">Button</h1>
         <p className=" mt-4">
           A customizable, pixel-art styled button component.
@@ -127,7 +127,10 @@ function App() {
           {/* -------------------------------------------------------- */}
           <div className="mt-12">
             <h1 className="font-minecraft-bold text-lg ml-2">Props</h1>
-            <Card className="w-full overflow-x-auto">
+            <Card
+              className="w-full overflow-x-auto bg-opacity-30 bg-white"
+              bg="transparent"
+            >
               <table className="min-w-full">
                 <thead>
                   <tr className="border-b">
@@ -355,7 +358,7 @@ onClick={() => alert('Button clicked!')}>
               }`}
             >
               <CopyableCode
-                code={`<Button className="w-full py-2">
+                code={`<Button bg="darkgray" shadow="gray" className="w-full py-2">
   Full Width Button
 </Button>`}
               />
