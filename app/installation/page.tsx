@@ -238,7 +238,7 @@ function Page() {
             <div className="md:ml-12">
               <div>
                 <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                  Install Pixel RetroUI using npm:
+                  Install RetroUI using npm:
                 </p>
               </div>
               <CopyableCode
