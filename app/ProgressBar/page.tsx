@@ -281,22 +281,43 @@ function App() {
             Additional Examples
           </h1>
 
-          <h2 className="font-minecraft text-md ml-2 mt-4">Different Sizes</h2>
-          <CopyableCode
-            code={`<ProgressBar size="sm" color="blue" progress={25} />
-<ProgressBar size="md" color="green" progress={50} />
-<ProgressBar size="lg" color="red" progress={75} />`}
-          />
+          <h2 className="font-minecraft text-md ml-2 mt-4">
+            Different Sizes with Custom Colors
+          </h2>
 
-          <h2 className="font-minecraft text-md ml-2 mt-4">Custom Colors</h2>
-          <CopyableCode
-            code={`<ProgressBar
-  color="#ff00ff"
-  bg="#f0f0f0"
-  borderColor="#333333"
-  progress={60}
-/>`}
-          />
+          <Card
+            className={`w-full min-h-56 relative ${
+              String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+            }`}
+          >
+            <CopyableCode
+              code={`<ProgressBar size="sm" color="gray" progress={25} className="w-1/3" />
+<ProgressBar size="md" color="green" progress={50} className="w-1/3" />
+<ProgressBar size="lg" color="skyblue" progress={75} className="w-1/3" />`}
+            />
+            <div className=" w-full flex flex-col gap-4 items-center py-20 justify-center relative">
+              <p className=" absolute top-2 left-2">Preview:</p>
+
+              <ProgressBar
+                size="sm"
+                color="gray"
+                progress={25}
+                className="w-1/3"
+              />
+              <ProgressBar
+                size="md"
+                color="green"
+                progress={50}
+                className="w-1/3"
+              />
+              <ProgressBar
+                size="lg"
+                color="skyblue"
+                progress={75}
+                className="w-1/3"
+              />
+            </div>
+          </Card>
         </div>
       </div>
     </main>

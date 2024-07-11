@@ -42,10 +42,10 @@ function Page() {
   return (
     <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <div
-        className="absolute inset-0 z-0 opacity-20"
+        className="absolute inset-0 z-0 opacity-30"
         style={{
           backgroundImage:
-            "url('https://i.pinimg.com/originals/c7/01/d4/c701d4e1b03d0944a258d93eda8e0fe6.gif')",
+            "url('https://i.pinimg.com/564x/39/d8/b1/39d8b1f389dd251203dbc7280ff0dc7f.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -281,15 +281,33 @@ function App() {
           <h2 className="font-minecraft text-md ml-2 mt-4">
             With Custom Styling
           </h2>
-          <CopyableCode
-            code={`<TextArea 
+          <Card
+            className={`w-full min-h-56 relative ${
+              String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+            }`}
+          >
+            <CopyableCode
+              code={`<TextArea 
   className="w-full h-32 p-2"
   bg="#f0f0f0"
-  textColor="#333333"
-  borderColor="#999999"
+  textColor="gray"
+  borderColor="gray"
   placeholder="Type something..."
 />`}
-          />
+            />
+            <div className=" w-full flex items-center py-20 justify-center relative">
+              <p className=" absolute top-2 left-2">Preview:</p>
+              <div>
+                <TextArea
+                  className="w-full h-32 p-2"
+                  bg="#f0f0f0"
+                  textColor="gray"
+                  borderColor="gray"
+                  placeholder="Type something..."
+                />
+              </div>
+            </div>
+          </Card>
 
           <h2 className="font-minecraft text-md ml-2 mt-4">
             With Controlled Value
