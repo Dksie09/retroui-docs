@@ -22,7 +22,7 @@ export default function Home() {
           window.open("https://github.com/Dksie09/RetroUI", "_blank");
         }}
       >
-        <div className=" flex items-center justify-center gap-1">
+        <div className=" flex items-center font-minecraft justify-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
