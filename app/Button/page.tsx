@@ -323,20 +323,50 @@ function App() {
             <h2 className="font-minecraft text-md ml-2 mt-4">
               With onClick Handler
             </h2>
-            <CopyableCode
-              code={`<Button onClick={() => alert('Button clicked!')}>
-  Click Me
+            <Card
+              className={`w-full min-h-56 relative ${
+                String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+              }`}
+            >
+              <CopyableCode
+                code={`<Button 
+className="w-20 h-10" 
+onClick={() => alert('Button clicked!')}>
+    Alert!
 </Button>`}
-            />
+              />
+              <div className=" w-full flex flex-col gap-4 items-center py-20 justify-center relative">
+                <p className=" absolute top-2 left-2">Preview:</p>
+                <Button
+                  className="w-20 h-10"
+                  onClick={() => alert("Button clicked!")}
+                >
+                  Alert!
+                </Button>
+              </div>
+            </Card>
 
             <h2 className="font-minecraft text-md ml-2 mt-4">
               With Additional Classes
             </h2>
-            <CopyableCode
-              code={`<Button className="w-full py-2">
+            <Card
+              className={`w-full min-h-56 relative ${
+                String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+              }`}
+            >
+              <CopyableCode
+                code={`<Button className="w-full py-2">
   Full Width Button
 </Button>`}
-            />
+              />
+              <div className=" px-10 w-full flex items-center py-20 justify-center relative">
+                <p className=" absolute top-2 left-2">Preview:</p>
+
+                <Button className="w-full py-2" bg="darkgray" shadow="gray">
+                  Full Width Button
+                </Button>
+              </div>
+            </Card>
           </div>
           {/* -------------------------------------------------------- */}
         </div>

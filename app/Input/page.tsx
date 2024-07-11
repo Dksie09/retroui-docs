@@ -36,7 +36,6 @@ function Page() {
     textColor="${colors.text}"
     borderColor="${colors.border}"
     placeholder="Enter text..."
-    icon="/path/to/icon.svg"
     onChange={(e) => console.log(e.target.value)}
   />`;
   };
@@ -288,7 +287,6 @@ function App() {
                     : themeColors[selectedTheme as ThemeOptions].border
                 }
                 placeholder="Enter text..."
-                icon="./search.svg"
               />
             </div>
             <div className="mt-4">
@@ -303,25 +301,51 @@ function App() {
           </h1>
 
           <h2 className="font-minecraft text-md ml-2 mt-4">With Icon</h2>
-          <CopyableCode
-            code={`<Input 
+          <Card
+            className={`w-full min-h-56 relative ${
+              String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+            }`}
+          >
+            <CopyableCode
+              code={`<Input 
   icon="/path/to/search-icon.svg"
   placeholder="Search..."
 />`}
-          />
+            />
+            <div className=" w-full flex flex-col gap-4 items-center py-20 justify-center relative">
+              <p className=" absolute top-2 left-2">Preview:</p>
+              <Input icon="./search.svg" placeholder="Search..." />
+            </div>
+          </Card>
 
           <h2 className="font-minecraft text-md ml-2 mt-4">
             With Custom Styling
           </h2>
-          <CopyableCode
-            code={`<Input 
-  className="w-full py-2"
-  bg="#f0f0f0"
-  textColor="#333333"
-  borderColor="#999999"
-  placeholder="Custom styled input"
+          <Card
+            className={`w-full min-h-56 relative ${
+              String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+            }`}
+          >
+            <CopyableCode
+              code={`<Input
+  className=" w-1/3"
+  bg="#aacf9b"
+  textColor="#44573c"
+  borderColor="#44573c"
+  placeholder="Type something..."
 />`}
-          />
+            />
+            <div className=" w-full flex flex-col gap-4 items-center py-20 justify-center relative">
+              <p className=" absolute top-2 left-2">Preview:</p>
+              <Input
+                className=" w-1/3"
+                bg="#aacf9b"
+                textColor="#44573c"
+                borderColor="#44573c"
+                placeholder="Type something..."
+              />
+            </div>
+          </Card>
         </div>
       </div>
     </main>
