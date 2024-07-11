@@ -192,15 +192,15 @@ function Page() {
               </h1>
             </div>
             <p className="mt-2 md:mt-4 md:ml-12 text-xs md:text-sm">
-              The setup requires a NextJS/ ReactJS app with Typescript &
-              Tailwind.
+              Start by creating a new project. The setup requires a NextJS/
+              ReactJS app with Typescript & Tailwind.
             </p>
             <div className="md:ml-12">
               <div className="flex flex-col mt-4 md:mt-6 w-full">
                 <div className="w-full md:w-1/2">
                   <h2 className="text-xs">For NextJS:</h2>
                   <CopyableCode
-                    code={`npx create-next-app@latest --typescript --tailwindcss`}
+                    code={`npx create-next-app@latest my-app --typescript --tailwindcss`}
                     className="mt-3 md:mt-5"
                   />
                 </div>
@@ -364,9 +364,9 @@ export default App;`}
               </p>
               <CopyableCode
                 code={`<Button 
-  variant="secondary" 
-  bg="#ff0000" 
-  textColor="#ffffff" 
+  bg="#c381b5" 
+  textColor="#fefcd0"
+  shadow="#fefcd0"
   className="px-6 py-2"
 >
   Custom Button
@@ -444,6 +444,7 @@ export default App;`}
                 <a
                   href="https://github.com/Dksie09/RetroUI"
                   className="underline"
+                  target="_blank"
                 >
                   GitHub repository
                 </a>{" "}
@@ -456,11 +457,16 @@ export default App;`}
               <a
                 href="https://github.com/Dksie09/RetroUI/issues"
                 className="underline"
+                target="_blank"
               >
                 open an issue
               </a>{" "}
               on GitHub or drop a dm on{" "}
-              <a href="https://x.com/duckwhocodes" className="underline">
+              <a
+                href="https://dm.new/duck"
+                target="_blank"
+                className="underline"
+              >
                 Twitter
               </a>
               .
