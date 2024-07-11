@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import CopyableCode from "../components/CopyableCode";
-import { Card } from "pixel-retroui";
+import { Button, Card } from "pixel-retroui";
 import { themeColors, ThemeOptions } from "../themes";
 
 function Page() {
@@ -37,7 +37,7 @@ function Page() {
   textColor="${colors.text}"
   borderColor="${colors.border}"
   shadowColor="${colors.shadow}"
-  className="p-4"
+  className="p-4 text-center"
 >
   <h2>Card Title</h2>
   <p>This is the card content.</p>
@@ -178,6 +178,7 @@ function App() {
                   <td className="px-4 py-2">&apos;#000000&apos;</td>
                   <td className="px-4 py-2">Text color of the card content</td>
                 </tr>
+
                 <tr className="border-b">
                   <td className="px-4 py-2">borderColor</td>
                   <td className="px-4 py-2">string</td>
@@ -311,7 +312,7 @@ function App() {
                     ? customColors.shadow
                     : themeColors[selectedTheme as ThemeOptions].shadow
                 }
-                className=" p-4"
+                className=" p-4 text-center"
               >
                 <h2 className="text-xl font-bold mb-2">Card Title</h2>
                 <p>This is the card content.</p>
@@ -331,13 +332,40 @@ function App() {
           <h2 className="font-minecraft text-md ml-2 mt-4">
             Card with Custom Content and Classes
           </h2>
-          <CopyableCode
-            code={`<Card className="p-4 items-center flex flex-col">
+          <Card
+            className={`w-full min-h-56 relative ${
+              String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+            }`}
+          >
+            <CopyableCode
+              code={`<Card bg="darkgray" className="p-4 items-center flex flex-col">
         <h2 className="text-2xl font-bold mb-2">Card Title</h2>
         <p className="mb-4">This card has custom content and styling.</p>
-        <Button onClick={() => console.log("Button clicked")}>Click me</Button>
+        <Button bg="gray" onClick={() => console.log("Button clicked")}>Click me</Button>
       </Card>`}
-          />
+            />
+            <div className=" w-full flex items-center py-20 justify-center relative">
+              <p className=" absolute top-2 left-2">Preview:</p>
+              <div>
+                <Card
+                  className="p-4 items-center flex flex-col"
+                  bg="darkgray"
+                  shadowColor="black"
+                >
+                  <h2 className="text-2xl font-bold mb-2">Card Title</h2>
+                  <p className="mb-4">
+                    This card has custom content and styling.
+                  </p>
+                  <Button
+                    onClick={() => console.log("Button clicked")}
+                    bg="gray"
+                  >
+                    Click me
+                  </Button>
+                </Card>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </main>

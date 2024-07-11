@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import CopyableCode from "../components/CopyableCode";
-import { Card, Button, Popup } from "pixel-retroui";
+import { Card, Button, Popup, Input } from "pixel-retroui";
 import { themeColors, ThemeOptions } from "../themes";
 
 function Page() {
@@ -19,6 +19,11 @@ function Page() {
   });
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  const [isPopupOpen2, setIsPopupOpen2] = useState(false);
+
+  const openPopup = () => setIsPopupOpen2(true);
+  const closePopup = () => setIsPopupOpen2(false);
+
   const handleThemeChange = (theme: ThemeOptions | "custom") => {
     setSelectedTheme(theme);
   };
@@ -33,11 +38,7 @@ function Page() {
       selectedTheme === "custom"
         ? customColors
         : themeColors[selectedTheme as ThemeOptions];
-    return `const [isPopupOpen, setIsPopupOpen] = useState(false);
-  
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
-  
+    return `<div>
   <Button onClick={openPopup}>Open Popup</Button>
   
   <Popup
@@ -49,27 +50,17 @@ function Page() {
     borderColor="${colors.border}"
   >
     Your popup content here
-  </Popup>`;
+  </Popup>
+  </div>`;
   };
 
   return (
     <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <div
-        className="absolute inset-0 z-0 opacity-20"
+        className="absolute inset-0 z-0 opacity-30"
         style={{
           backgroundImage:
-            "url('https://i.pinimg.com/originals/e7/50/86/e750869f635c22314b470aafd09f28e3.gif')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></div>
-
-      <div
-        className="absolute inset-0 z-0 opacity-20"
-        style={{
-          backgroundImage:
-            "url('https://i.pinimg.com/originals/c7/01/d4/c701d4e1b03d0944a258d93eda8e0fe6.gif')",
+            "url('https://i.pinimg.com/564x/fa/66/27/fa662786798d35f4d86572ab79621d0a.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -358,9 +349,10 @@ function App() {
                     ? customColors.border
                     : themeColors[selectedTheme as ThemeOptions].border
                 }
+                className=" text-center"
               >
-                <h2 className="text-xl mb-4">Themed Popup Content</h2>
-                <p>This is a customized popup with themed colors.</p>
+                <h2 className="text-xl mb-4">Welcome!</h2>
+                <p>Hope you are having a great day.</p>
               </Popup>
             </div>
             <div className="mt-4">
@@ -374,16 +366,58 @@ function App() {
             Additional Examples
           </h1>
 
-          <h2 className="font-minecraft text-md ml-2 mt-4">With Form</h2>
-          <CopyableCode
-            code={`<Popup isOpen={isOpen} onClose={closePopup}>
-  <form onSubmit={handleSubmit}>
-    <Input placeholder="Username" />
-    <Input type="password" placeholder="Password" />
-    <Button type="submit">Login</Button>
-  </form>
-</Popup>`}
-          />
+          <h2 className="font-minecraft text-md ml-2 mt-4">
+            With Custom Content and Classes
+          </h2>
+          <Card
+            className={`w-full min-h-56 relative ${
+              String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+            }`}
+          >
+            <CopyableCode
+              code={`<div>
+  <Button onClick={openPopup}>Open form</Button>
+  <Popup
+    isOpen={isPopupOpen}
+    onClose={closePopup}
+    className="text-center">
+      <h1 className="text-3xl mb-4">Welcome!</h1>
+      <p className="mb-4"> Please login to continue.</p>
+      <form onSubmit={handleSubmit} className=" flex flex-col gap-4 items-center">
+        <Input placeholder="Username" />
+        <Input type="password" placeholder="Password" />
+        <Button type="submit" className=" w-20">
+          Login
+        </Button>
+      </form>
+    </Popup>
+</div>`}
+            />
+            <div className=" w-full flex items-center py-20 justify-center relative">
+              <p className=" absolute top-2 left-2">Preview:</p>
+              <div>
+                <Button onClick={openPopup}>Open form</Button>
+                <Popup
+                  isOpen={isPopupOpen2}
+                  onClose={closePopup}
+                  className="text-center"
+                >
+                  <h1 className="text-3xl mb-4">Welcome!</h1>
+                  <p className="mb-4"> Please login to continue.</p>
+                  <form
+                    onSubmit={closePopup}
+                    className=" flex flex-col gap-4 items-center"
+                  >
+                    <Input placeholder="Username" />
+                    <Input type="password" placeholder="Password" />
+                    <Button type="submit" className=" w-20">
+                      Login
+                    </Button>
+                  </form>
+                </Popup>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </main>
