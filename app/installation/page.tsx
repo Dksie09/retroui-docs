@@ -215,6 +215,7 @@ function Page() {
                     <a
                       href="https://tailwindcss.com/docs/guides/create-react-app"
                       className="underline"
+                      target="_blank"
                     >
                       these
                     </a>{" "}
