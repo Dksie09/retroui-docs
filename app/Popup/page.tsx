@@ -376,17 +376,19 @@ function App() {
           >
             <CopyableCode
               code={`<div>
-  <Button onClick={openPopup}>Open form</Button>
+  <Button bg="gray" onClick={openPopup}>Open form</Button>
   <Popup
+    bg="darkgray"
+    baseBg="gray"
     isOpen={isPopupOpen}
     onClose={closePopup}
     className="text-center">
       <h1 className="text-3xl mb-4">Welcome!</h1>
       <p className="mb-4"> Please login to continue.</p>
       <form onSubmit={handleSubmit} className=" flex flex-col gap-4 items-center">
-        <Input placeholder="Username" />
-        <Input type="password" placeholder="Password" />
-        <Button type="submit" className=" w-20">
+        <Input bg="#f2f2f2" placeholder="Username" />
+        <Input bg="#f2f2f2" type="password" placeholder="Password" />
+        <Button bg="gray" type="submit" className=" w-20">
           Login
         </Button>
       </form>
@@ -396,21 +398,29 @@ function App() {
             <div className=" w-full flex items-center py-20 justify-center relative">
               <p className=" absolute top-2 left-2">Preview:</p>
               <div>
-                <Button onClick={openPopup}>Open form</Button>
+                <Button bg="gray" onClick={openPopup}>
+                  Open form
+                </Button>
                 <Popup
                   isOpen={isPopupOpen2}
                   onClose={closePopup}
                   className="text-center"
+                  bg="darkgray"
+                  baseBg="gray"
                 >
                   <h1 className="text-3xl mb-4">Welcome!</h1>
-                  <p className="mb-4"> Please login to continue.</p>
+                  <p className="mb-4"> Hi there! Please enter you details.</p>
                   <form
                     onSubmit={closePopup}
                     className=" flex flex-col gap-4 items-center"
                   >
-                    <Input placeholder="Username" />
-                    <Input type="password" placeholder="Password" />
-                    <Button type="submit" className=" w-20">
+                    <Input bg="#f2f2f2" placeholder="Username" />
+                    <Input
+                      bg="#f2f2f2"
+                      type="password"
+                      placeholder="Password"
+                    />
+                    <Button bg="gray" type="submit" className=" w-20">
                       Login
                     </Button>
                   </form>
