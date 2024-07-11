@@ -8,6 +8,11 @@ import CopyableCode from "../components/CopyableCode";
 function Page() {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState("");
+  const [openItem, setOpenItem] = useState(null);
+
+  const toggleItem = (index: any) => {
+    setOpenItem(openItem === index ? null : index);
+  };
 
   const sections = [
     { id: "initialize", title: "Initialize" },
@@ -17,6 +22,44 @@ function Page() {
     { id: "customization", title: "Customization" },
     { id: "troubleshooting", title: "Troubleshooting" },
     { id: "next-steps", title: "Next Steps" },
+  ];
+
+  const troubleshootingItems = [
+    {
+      title: "Fonts not loading",
+      content: (
+        <>
+          Ensure the paths to the font files are correct and that you&apos;ve
+          imported the CSS file.
+          <br /> Use{" "}
+          <span className="font-mono bg-gray-200 p-1 rounded-md">
+            font-minecraft
+          </span>{" "}
+          and{" "}
+          <span className="font-mono bg-gray-200 p-1 rounded-md">
+            font-minecraft-bold
+          </span>{" "}
+          to add minecraft font to your text.
+        </>
+      ),
+    },
+    {
+      title: "Components not styled correctly",
+      content:
+        "Make sure you've imported the library's CSS file and that it's not being overridden by other styles.",
+    },
+    {
+      title: "Tailwind classes not working",
+      content: (
+        <>
+          Ensure that you have added{" "}
+          <span className="font-mono bg-gray-200 p-1 rounded-md">
+            important: true
+          </span>{" "}
+          in tailwind.config.ts.
+        </>
+      ),
+    },
   ];
 
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -112,7 +155,7 @@ function Page() {
       </p>
 
       {/* ------------------------------------------ */}
-      <div className="hidden lg:block fixed right-4 top-1/2 transform -translate-y-1/2 bg-white p-4 rounded-lg shadow-md">
+      <div className="hidden lg:block fixed right-4 top-1/2 transform z-50 -translate-y-1/2 bg-white p-4 rounded-lg shadow-md">
         <h2 className="font-minecraft-bold mb-2">Index</h2>
         <ul>
           {sections.map((section) => (
@@ -334,47 +377,46 @@ export default App;`}
           </div>
           <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
           <div id="troubleshooting" className="mt-6 md:mt-10">
-            <h1 className="font-minecraft-bold text-2xl md:text-3xl">
+            <h1 className="font-minecraft-bold text-2xl md:text-3xl mb-6">
               Troubleshooting
             </h1>
-            <div className="mt-4 md:mt-6">
-              <h2 className="font-minecraft-bold text-lg md:text-xl">
-                Fonts not loading
-              </h2>
-              <p className="mt-1 md:mt-2 text-xs md:text-sm">
-                Ensure the paths to the font files are correct and that
-                you&apos;ve imported the CSS file.
-                <br /> Use{" "}
-                <span className=" font-mono bg-gray-200 p-1 rounded-md">
-                  font-minecraft
-                </span>{" "}
-                and{" "}
-                <span className=" font-mono bg-gray-200 p-1 rounded-md">
-                  font-minecraft-bold
-                </span>{" "}
-                to add mincraft font to your text.
-              </p>
-            </div>
-            <div className="mt-3 md:mt-4">
-              <h2 className="font-minecraft-bold text-lg md:text-xl">
-                Components not styled correctly
-              </h2>
-              <p className="mt-1 md:mt-2 text-xs md:text-sm">
-                Make sure you&apos;ve imported the library&apos;s CSS file and
-                that it&apos;s not being overridden by other styles.
-              </p>
-            </div>
-            <div className="mt-3 md:mt-4">
-              <h2 className="font-minecraft-bold text-lg md:text-xl">
-                Tailwind classes not working
-              </h2>
-              <p className="mt-1 md:mt-2 text-xs md:text-sm">
-                Ensure that you have added{" "}
-                <span className=" font-mono bg-gray-200 p-1 rounded-md">
-                  important: true
-                </span>{" "}
-                in tailwind.config.ts.
-              </p>
+            <div className=" space-y-8">
+              {troubleshootingItems.map((item, index) => (
+                <Card key={index} className="lg:w-1/2 overflow-hidden">
+                  <button
+                    className="flex gap-4 items-center w-full p-4 text-left font-minecraft-bold text-lg md:text-xl"
+                    onClick={() => toggleItem(index)}
+                  >
+                    <div
+                      className="w-6 h-6 relative transition-transform duration-300 ease-in-out"
+                      style={{
+                        transform:
+                          openItem === index ? "rotate(90deg)" : "rotate(0deg)",
+                      }}
+                    >
+                      <Image
+                        src="/arrow.png"
+                        alt="Toggle"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                    {item.title}
+                  </button>
+                  <div
+                    className="transition-all duration-300 ease-in-out"
+                    style={{
+                      maxHeight: openItem === index ? "1000px" : "0",
+                      opacity: openItem === index ? 1 : 0,
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div className="p-4 text-xs md:text-sm border-t border-gray-200">
+                      {item.content}
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
           </div>
           <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
