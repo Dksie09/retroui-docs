@@ -105,7 +105,7 @@ function Page() {
         className="absolute inset-0 z-0 opacity-30"
         style={{
           backgroundImage:
-            "url('https://i.pinimg.com/474x/60/62/88/6062884f3e1904e2af6badeb4501d054.jpg')",
+            "url('https://tse1.mm.bing.net/th?id=OIP.3TCx9qKNvsGIehvF4OZWlwHaFu&pid=15.1')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
