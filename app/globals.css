@@ -53,7 +53,7 @@
   --shadow-color: #ffffff;
 }
 
-.nes-balloon {
+.balloon {
   border-radius: 4px;
   position: relative;
   display: inline-block;
@@ -63,81 +63,81 @@
   background-color: #ffffff; /* Assuming $background-color is white */
 }
 
-.nes-balloon > :last-child {
+.balloon > :last-child {
   margin-bottom: 0;
 }
 
-.nes-balloon::before,
-.nes-balloon::after {
+.balloon::before,
+.balloon::after {
   position: absolute;
   content: "";
 }
 
-.nes-balloon.is-dark {
+.balloon.is-dark {
   border-radius: 0;
-  color: #ffffff; /* Assuming $background-color is white */
-  background: #000000; /* Assuming $base-color is black */
+  color: #ffffff;
+  background: #000000;
   border-image-outset: 2;
-  box-shadow: 0 0 0 8px #000000; /* Assuming $base-color is black */
+  box-shadow: 0 0 0 8px #000000;
 }
 
-.nes-balloon.is-dark.from-left::before,
-.nes-balloon.is-dark.from-right::before {
-  background-color: #000000; /* Assuming $base-color is black */
-  border-color: #ffffff; /* Assuming $background-color is white */
+.balloon.is-dark.from-left::before,
+.balloon.is-dark.from-right::before {
+  background-color: #000000;
+  border-color: #ffffff;
 }
 
-.nes-balloon.is-dark.from-left::after,
-.nes-balloon.is-dark.from-right::after {
-  color: #ffffff; /* Assuming $background-color is white */
-  background-color: #000000; /* Assuming $base-color is black */
+.balloon.is-dark.from-left::after,
+.balloon.is-dark.from-right::after {
+  color: #ffffff;
+  background-color: #000000;
 }
 
-.nes-balloon.is-dark.from-left::before {
-  box-shadow: -5px 10px 0 6px #000000; /* Assuming $base-color is black */
+.balloon.is-dark.from-left::before {
+  box-shadow: -5px 10px 0 6px #000000;
 }
 
-.nes-balloon.is-dark.from-left::after {
+.balloon.is-dark.from-left::after {
   box-shadow: -4px 0, 4px 0, -4px 4px #000000, 0 4px, -8px 4px, -4px 8px,
     -8px 8px;
 }
 
-.nes-balloon.is-dark.from-right::before {
-  box-shadow: 5px 10px 0 6px #000000; /* Assuming $base-color is black */
+.balloon.is-dark.from-right::before {
+  box-shadow: 5px 10px 0 6px #000000;
 }
 
-.nes-balloon.is-dark.from-right::after {
+.balloon.is-dark.from-right::after {
   box-shadow: -4px 0, 4px 0, 4px 4px #000000, 0 4px, 8px 4px, 4px 8px, 8px 8px;
 }
 
-.nes-balloon.from-left::before,
-.nes-balloon.from-left::after {
+.balloon.from-left::before,
+.balloon.from-left::after {
   left: 2rem;
 }
 
-.nes-balloon.from-left::before {
+.balloon.from-left::before {
   bottom: -14px;
   width: 26px;
   height: 10px;
-  background-color: #ffffff; /* Assuming $background-color is white */
-  border-right: 4px solid #000000; /* Assuming $base-color is black */
-  border-left: 4px solid #000000; /* Assuming $base-color is black */
+  background-color: #ffffff;
+  border-right: 4px solid #000000;
+  border-left: 4px solid #000000;
 }
 
-.nes-balloon.from-left::after {
+.balloon.from-left::after {
   bottom: -18px;
   width: 18px;
   height: 4px;
   margin-right: 8px;
-  color: #000000; /* Assuming $base-color is black */
-  background-color: #ffffff; /* Assuming $background-color is white */
+  color: #000000;
+  background-color: #ffffff;
   box-shadow: -4px 0, 4px 0, -4px 4px #ffffff, 0 4px, -8px 4px, -4px 8px,
     -8px 8px;
 }
 
 .rounded-corners {
   border-style: solid;
-  border-width: 4px; /* Assuming $border-size is 4px */
+  border-width: 4px;
   border-image-slice: 3;
   border-image-width: 3;
   border-image-repeat: stretch;
@@ -147,7 +147,7 @@
 
 .rounded-corners-dark {
   border-style: solid;
-  border-width: 4px; /* Assuming $border-size is 4px */
+  border-width: 4px;
   border-image-slice: 3;
   border-image-width: 3;
   border-image-repeat: stretch;
@@ -155,25 +155,25 @@
   border-image-outset: 0;
 }
 
-.nes-balloon.from-right::before,
-.nes-balloon.from-right::after {
+.balloon.from-right::before,
+.balloon.from-right::after {
   right: 2rem;
 }
 
-.nes-balloon.from-right::before {
+.balloon.from-right::before {
   bottom: -14px;
   width: 26px;
   height: 10px;
-  background-color: #ffffff; /* Assuming $background-color is white */
-  border-right: 4px solid #000000; /* Assuming $base-color is black */
-  border-left: 4px solid #000000; /* Assuming $base-color is black */
+  background-color: #ffffff;
+  border-right: 4px solid #000000;
+  border-left: 4px solid #000000;
 }
 
-.nes-balloon.from-right::after {
+.balloon.from-right::after {
   bottom: -18px;
   width: 18px;
   height: 4px;
   margin-left: 8px;
-  background-color: #ffffff; /* Assuming $background-color is white */
+  background-color: #ffffff;
   box-shadow: -4px 0, 4px 0, 4px 4px #ffffff, 0 4px, 8px 4px, 4px 8px, 8px 8px;
 }
