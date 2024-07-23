@@ -43,11 +43,11 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
       description: "Multi-line input with retro charm",
       Component: TextArea,
     },
-    {
-      name: "Bubble",
-      description: "Speech bubble for text or content",
-      Component: Bubble,
-    },
+    // {
+    //   name: "Bubble",
+    //   description: "Speech bubble for text or content",
+    //   Component: Bubble,
+    // },
     {
       name: "ProgressBar",
       description: "Nostalgic progress indicators",
@@ -151,7 +151,7 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
             onClick={(e) => {
               e.stopPropagation();
               setSelectedComponent(name);
-              router.push(`/${name}`);
+              router.push(`/${name.toLowerCase()}`);
             }}
           >
             <div className="absolute inset-0 flex items-center justify-center">
@@ -230,7 +230,7 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
               whileTap={{ scale: 0.95 }}
               onClick={() => {
                 setSelectedComponent(name);
-                router.push(`/${name}`);
+                router.push(`/${name.toLowerCase()}`);
               }}
               className="h-full"
             >
