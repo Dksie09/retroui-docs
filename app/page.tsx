@@ -60,6 +60,16 @@ export default function Home() {
       </div>
       <div>
         <Button
+          bg="#fefcd0"
+          shadow="#c381b5"
+          className=" px-2"
+          onClick={() => {
+            router.push("/installation");
+          }}
+        >
+          Get Started
+        </Button>
+        <Button
           className=" px-2"
           bg="#c381b5"
           shadow="#fefcd0"
@@ -69,16 +79,6 @@ export default function Home() {
           }}
         >
           Explore components
-        </Button>
-        <Button
-          bg="#fefcd0"
-          shadow="#c381b5"
-          className=" px-2"
-          onClick={() => {
-            window.open("https://github.com/Dksie09/RetroUI", "_blank");
-          }}
-        >
-          GitHub
         </Button>
       </div>
       <div>{/* TODO: add demo components to play around */}</div>

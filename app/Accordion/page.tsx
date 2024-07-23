@@ -198,7 +198,7 @@ function App() {
                   <tr>
                     <td className="px-4 py-2">className</td>
                     <td className="px-4 py-2">string</td>
-                    <td className="px-4 py-2">''</td>
+                    <td className="px-4 py-2">&apos;&apos;</td>
                     <td className="px-4 py-2">
                       Additional CSS classes to apply to the accordion
                     </td>
@@ -213,8 +213,8 @@ function App() {
               Custom Accordion
             </h1>
             <p className="text-sm ml-2 mb-6">
-              Customize your accordion's appearance by selecting a preset theme
-              or creating your own color scheme.
+              Customize your accordion&apos;s appearance by selecting a preset
+              theme or creating your own color scheme.
             </p>
             <Card
               className={`w-full min-h-56 relative ${
