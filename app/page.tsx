@@ -81,6 +81,7 @@ export default function Home() {
           GitHub
         </Button>
       </div>
+      <div>{/* TODO: add demo components to play around */}</div>
     </main>
   );
 }

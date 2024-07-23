@@ -72,8 +72,9 @@ function Page() {
               alt="setup"
             />
             <div
+              onClick={() => router.push("/installation")}
               className={`
-                balloon py-1 px-2 text-center from-left ml-2
+                balloon py-1 px-2 cursor-pointer text-center from-left ml-2
                 ${
                   theme === "dark"
                     ? "is-dark rounded-corners-dark"

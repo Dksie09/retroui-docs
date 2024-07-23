@@ -99,8 +99,7 @@ function Page() {
     }
   };
   return (
-    <main className="flex min-h-screen font-minecraft flex-col w-full gap-5 p-8 lg:p-16 xl:p-32 relative overflow-hidden">
-      {/* Background div */}
+    <main className="flex min-h-screen font-minecraft flex-col w-full gap-5 p-4 md:p-8 lg:p-16 xl:p-32 relative overflow-hidden">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -144,15 +143,26 @@ function Page() {
           <span className="hidden sm:inline">Star the repo</span>
         </div>
       </div>
-      <p
-        className="top-14 md:top-[5vw] left-[5vw] md:left-20 absolute cursor-pointer"
-        onClick={() => {
-          router.push("/components");
-        }}
+      <button
+        className="absolute top-20 left-2 md:left-8 underline font-minecraft text-sm flex items-center"
+        onClick={() => router.push("/components")}
       >
-        {" "}
-        {"<"} Back
-      </p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 mr-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Back to Components
+      </button>
 
       {/* ------------------------------------------ */}
       <div className="hidden lg:block fixed right-4 top-1/2 transform z-50 -translate-y-1/2 bg-white p-4 rounded-lg shadow-md">
@@ -396,7 +406,7 @@ export default App;`}
                       }}
                     >
                       <Image
-                        src="/arrow.png"
+                        src="/arrow.svg"
                         alt="Toggle"
                         layout="fill"
                         objectFit="contain"
@@ -432,13 +442,6 @@ export default App;`}
                   Components
                 </a>{" "}
                 to see what&apos;s available
-              </li>
-              <li>
-                {/* Check out our{" "}
-                <a href="/theming" className="underline">
-                  Theming Guide
-                </a>{" "}
-                for more advanced customization options */}
               </li>
               <li>
                 Visit our{" "}

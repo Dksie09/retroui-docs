@@ -7,6 +7,11 @@ import {
   ProgressBar,
   TextArea,
   Popup,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  Bubble,
 } from "pixel-retroui";
 import { ThemeOptions, themeColors } from "../themes";
 import { useRouter } from "next/navigation";
@@ -34,24 +39,35 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
       Component: Input,
     },
     {
-      name: "Card",
-      description: "Pixel-perfect content containers",
-      Component: Card,
+      name: "TextArea",
+      description: "Multi-line input with retro charm",
+      Component: TextArea,
+    },
+    {
+      name: "Bubble",
+      description: "Speech bubble for text or content",
+      Component: Bubble,
     },
     {
       name: "ProgressBar",
       description: "Nostalgic progress indicators",
       Component: ProgressBar,
     },
+
     {
-      name: "TextArea",
-      description: "Multi-line input with retro charm",
-      Component: TextArea,
+      name: "Card",
+      description: "Pixel-perfect content containers",
+      Component: Card,
     },
     {
       name: "Popup",
       description: "Retro-inspired modal dialogs",
       Component: Popup,
+    },
+    {
+      name: "Accordion",
+      description: "Collapsible content sections",
+      Component: Accordion,
     },
   ];
 
@@ -157,6 +173,39 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
               </div>
             </div>
           </div>
+        );
+
+      case "Accordion":
+        return (
+          <Component
+            className="w-full max-w-xs"
+            borderColor={colors.border}
+            bg={colors.bg}
+            shadow={colors.shadow}
+            textColor={colors.text}
+          >
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Section 1</AccordionTrigger>
+              <AccordionContent>Content 1</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Section 2</AccordionTrigger>
+              <AccordionContent>Content 2</AccordionContent>
+            </AccordionItem>
+          </Component>
+        );
+
+      case "Bubble":
+        return (
+          <Bubble
+            className="max-w-xs"
+            direction="left"
+            borderColor={colors.border}
+            bg={colors.bg}
+            textColor={colors.text}
+          >
+            Hello there, beautiful!
+          </Bubble>
         );
 
       default:
