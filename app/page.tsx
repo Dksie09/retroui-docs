@@ -25,17 +25,19 @@ export default function Home() {
             width={80}
             height={80}
           />
-          <h1 className="md:text-7xl font-minecraft-bold text-5xl">Retro UI</h1>
-          <p className="md:text-3xl text-xl text-center font-minecraft">
+          <h1 className="md:text-7xl font-minecraft-bold text-5xl text-center">
+            Retro UI
+          </h1>
+          <p className="md:text-2xl text-xl text-center font-minecraft">
             A simple <span className="font-minecraft-bold">pixelated</span> UI
             library.
           </p>
         </div>
-        <div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
             bg="#fefcd0"
             shadow="#c381b5"
-            className=" px-2"
+            className="px-2"
             onClick={() => {
               router.push("/installation");
             }}
@@ -43,15 +45,15 @@ export default function Home() {
             Get Started
           </Button>
           <Button
-            className=" px-2"
+            className="px-2"
             bg="#c381b5"
             shadow="#fefcd0"
             textColor="#fefcd0"
             onClick={() => {
-              router.push("/components");
+              window.open("https://github.com/Dksie09/RetroUI", "_blank");
             }}
           >
-            Explore components
+            GitHub
           </Button>
         </div>
         <div>{/* TODO: add demo components to play around */}</div>
