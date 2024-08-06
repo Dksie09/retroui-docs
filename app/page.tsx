@@ -39,7 +39,7 @@ export default function Home() {
             shadow="#c381b5"
             className="px-2"
             onClick={() => {
-              router.push("/installation");
+              router.push("/components");
             }}
           >
             Get Started
