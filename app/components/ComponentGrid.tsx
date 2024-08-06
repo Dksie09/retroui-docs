@@ -12,6 +12,10 @@ import {
   AccordionTrigger,
   AccordionContent,
   Bubble,
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
 } from "pixel-retroui";
 import { ThemeOptions, themeColors } from "../themes";
 import { useRouter } from "next/navigation";
@@ -29,19 +33,9 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
 
   const components = [
     {
-      name: "Button",
-      description: "Customizable, pixel-art styled buttons",
-      Component: Button,
-    },
-    {
-      name: "Input",
-      description: "Retro-styled input fields for user",
-      Component: Input,
-    },
-    {
-      name: "TextArea",
-      description: "Multi-line input with retro charm",
-      Component: TextArea,
+      name: "Accordion",
+      description: "Collapsible content sections",
+      Component: Accordion,
     },
     {
       name: "Bubble",
@@ -49,15 +43,24 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
       Component: Bubble,
     },
     {
-      name: "ProgressBar",
-      description: "Nostalgic progress indicators",
-      Component: ProgressBar,
+      name: "Button",
+      description: "Customizable, pixel-art styled buttons",
+      Component: Button,
     },
-
     {
       name: "Card",
       description: "Pixel-perfect content containers",
       Component: Card,
+    },
+    {
+      name: "Dropdown",
+      description: "Customizable dropdown menu",
+      Component: DropdownMenu,
+    },
+    {
+      name: "Input",
+      description: "Retro-styled input fields for user",
+      Component: Input,
     },
     {
       name: "Popup",
@@ -65,9 +68,14 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
       Component: Popup,
     },
     {
-      name: "Accordion",
-      description: "Collapsible content sections",
-      Component: Accordion,
+      name: "ProgressBar",
+      description: "Nostalgic progress indicators",
+      Component: ProgressBar,
+    },
+    {
+      name: "TextArea",
+      description: "Multi-line input with retro charm",
+      Component: TextArea,
     },
   ];
 
@@ -95,6 +103,32 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ theme }) => {
               Accent
             </Component>
           </div>
+        );
+
+      case "Dropdown":
+        return (
+          <Component>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                bg={colors.bg}
+                textColor={colors.text}
+                borderColor={colors.border}
+                shadow={colors.shadow}
+              >
+                Dropdown Button
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                bg={colors.bg}
+                textColor={colors.text}
+                borderColor={colors.border}
+                shadowColor={colors.shadow}
+              >
+                <DropdownMenuItem>Action</DropdownMenuItem>
+                <DropdownMenuItem>Another action</DropdownMenuItem>
+                <DropdownMenuItem>One more action</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </Component>
         );
 
       case "Input":

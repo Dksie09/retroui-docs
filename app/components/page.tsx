@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Button } from "pixel-retroui";
+import { Bubble, Button } from "pixel-retroui";
 import ComponentGrid from "./ComponentGrid";
 import { ThemeOptions, themeColors } from "../themes";
 import Navbar from "./Navbar";
@@ -76,23 +76,45 @@ function Page() {
                 onClick={() => router.push("/installation")}
                 alt="setup"
               />
-              <div
-                onClick={() => router.push("/installation")}
-                className={`
-                balloon py-1 px-2 cursor-pointer text-center from-left ml-2
-                ${
-                  theme === "dark"
-                    ? "is-dark rounded-corners-dark"
-                    : "rounded-corners"
-                }
-              `}
-              >
-                <p className="text-xs sm:text-sm">
-                  Click me
-                  <br />
-                  to setup your project
-                </p>
+
+              {/* ======================== */}
+
+              <div onClick={() => router.push("/installation")}>
+                {theme === "dark" ? (
+                  <Bubble
+                    bg="black"
+                    textColor="white"
+                    borderColor="white"
+                    direction="left"
+                    className={`
+        py-1 px-2 cursor-pointer text-center from-left ml-2
+        is-dark rounded-corners-dark
+      `}
+                  >
+                    <p className="text-xs sm:text-sm">
+                      Click me
+                      <br />
+                      to setup your project
+                    </p>
+                  </Bubble>
+                ) : (
+                  <Bubble
+                    direction="left"
+                    className={`
+        py-1 px-2 cursor-pointer text-center from-left ml-2
+        rounded-corners
+      `}
+                  >
+                    <p className="text-xs sm:text-sm">
+                      Click me
+                      <br />
+                      to setup your project
+                    </p>
+                  </Bubble>
+                )}
               </div>
+
+              {/* ======================== */}
             </div>
 
             <div className="flex items-center gap-2">
