@@ -26,8 +26,8 @@ Key folders and their purposes:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/retro-ui-docs.git
-   cd retro-ui-docs
+   git clone https://github.com/Dksie09/retroui-docs
+   cd retroui-docs
    ```
 
 2. Install dependencies:
@@ -44,7 +44,7 @@ Key folders and their purposes:
 
 ## Contributing
 
-We welcome contributions to improve our documentation! Please fork the repository, make your changes, and submit a pull request.
+We welcome contributions to improve our documentation! Please open an issue, get assigned, fork the repository, make your changes, and submit a pull request.
 
 ## Support
 
