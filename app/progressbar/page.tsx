@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import CopyableCode from "../components/CopyableCode";
 import { Card, ProgressBar } from "pixel-retroui";
 import { themeColors, ThemeOptions } from "../themes";
+import Navbar from "../components/Navbar";
 
 function Page() {
   const router = useRouter();
@@ -42,7 +43,7 @@ function Page() {
   };
 
   return (
-    <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+    <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 py-24 xl:p-28  bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -54,40 +55,10 @@ function Page() {
         }}
       ></div>
 
-      {/* Header and navigation buttons */}
-      <button
-        className="flex w-56 top-5 gap-1 left-8 absolute"
-        onClick={() => {
-          router.push("/");
-        }}
-      >
-        <Image src="/logo.png" className="" alt="logo" width={25} height={25} />
-        <h1 className="font-minecraft-bold">RetroUI</h1>
-      </button>
+      <Navbar />
 
-      <button
-        className="absolute top-20 left-8 underline font-minecraft text-sm flex items-center"
-        onClick={() => router.push("/components")}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 mr-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-          />
-        </svg>
-        Back to Components
-      </button>
-
-      <div className="">
-        <h1 className="font-minecraft-bold text-5xl">ProgressBar</h1>
+      <div className="z-10">
+        <h1 className="font-minecraft-bold text-5xl">Progress Bar</h1>
         <p className="mt-4">
           A customizable, pixel-art styled progress bar component.
         </p>
@@ -111,9 +82,9 @@ function App() {
           />
         </div>
 
-        <div className="mt-12 ">
+        <div className="mt-12">
           <h1 className="font-minecraft-bold text-lg ml-2">Props</h1>
-          <Card className="w-full overflow-x-auto">
+          <Card className="w-full overflow-x-auto bg-opacity-30 bg-white">
             <table className="min-w-full">
               <thead>
                 <tr className="border-b">

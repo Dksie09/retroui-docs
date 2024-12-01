@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import CopyableCode from "../components/CopyableCode";
 import { Card, Button } from "pixel-retroui";
 import { themeColors, ThemeOptions } from "../themes";
+import Navbar from "../components/Navbar";
 
 function Page() {
   const router = useRouter();
@@ -43,7 +44,7 @@ function Page() {
   };
 
   return (
-    <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 xl:p-32  bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+    <main className="flex z-10 min-h-screen font-minecraft flex-col w-full gap-10 p-10 py-24 xl:p-28  bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <div
         className="absolute inset-0 z-0 opacity-20"
         style={{
@@ -54,56 +55,7 @@ function Page() {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <button
-        className="flex w-56 top-5 gap-1 left-8 absolute"
-        onClick={() => {
-          router.push("/");
-        }}
-      >
-        <Image src="/logo.png" className="" alt="logo" width={25} height={25} />
-        <h1 className="font-minecraft-bold">RetroUI</h1>
-      </button>
-      <div
-        className=" p-0 flex cursor-pointer top-5 gap-1 right-8 absolute"
-        onClick={() => {
-          window.open("https://github.com/Dksie09/RetroUI", "_blank");
-        }}
-      >
-        <div className=" flex items-center justify-center gap-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path d="M21 5L20 5 19 5 19 3 18 3 17 3 15 3 15 5 14 5 13 5 13 8 12 8 11 8 11 6 11 5 9 5 9 3 7 3 6 3 5 3 5 5 3 5 3 14 5 14 5 16 7 16 7 18 10 18 10 21 12 21 14 21 14 18 17 18 17 16 19 16 19 14 21 14z"></path>
-          </svg>
-          Star the repo
-        </div>
-      </div>
-
-      <button
-        className="absolute top-20 left-8 underline font-minecraft text-sm flex items-center"
-        onClick={() => router.push("/components")}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 mr-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-          />
-        </svg>
-        Back to Components
-      </button>
+      <Navbar />
 
       <div className="z-10">
         <h1 className="font-minecraft-bold text-5xl">Button</h1>
