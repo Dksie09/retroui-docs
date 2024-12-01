@@ -138,41 +138,6 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col relative">
       <Navbar />
-      {/* Header */}
-      {/* <header
-        className={`absolute top-0 left-0 right-0 flex justify-between items-center ${styles.headerPadding} z-20`}
-      >
-        <button
-          className="flex items-center gap-1"
-          onClick={() => router.push("/")}
-        >
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={styles.logoSize.width}
-            height={styles.logoSize.height}
-          />
-          <h1 className="font-minecraft-bold">RetroUI</h1>
-        </button>
-        <div
-          className="cursor-pointer"
-          onClick={() =>
-            window.open("https://github.com/Dksie09/RetroUI", "_blank")
-          }
-        >
-          <div className="flex items-center font-minecraft justify-center gap-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-            >
-              <path d="M21 5L20 5 19 5 19 3 18 3 17 3 15 3 15 5 14 5 13 5 13 8 12 8 11 8 11 6 11 5 9 5 9 3 7 3 6 3 5 3 5 5 3 5 3 14 5 14 5 16 7 16 7 18 10 18 10 21 12 21 14 21 14 18 17 18 17 16 19 16 19 14 21 14z"></path>
-            </svg>
-            Star the repo
-          </div>
-        </div>
-      </header> */}
 
       {/* Main content */}
       <main
@@ -228,11 +193,11 @@ export default function Home() {
 
       {/* Background elements */}
       {screenSize !== "mobile" && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
           {screenSize === "desktop" ? (
             <>
               <Card
-                className="w-60 lg:w-80 p-2 absolute top-10 lg:top-40 right-0 lg:-right-20 transition-transform duration-300 hover:rotate-[-20deg]"
+                className="w-60 lg:w-80 p-2 absolute top-10 lg:top-40 right-0 lg:-right-20 transition-transform duration-300 hover:rotate-[-20deg] pointer-events-auto"
                 bg="#fefcd0"
                 shadowColor="#c381b5"
                 style={{
@@ -258,7 +223,7 @@ export default function Home() {
 
               <div
                 className="w-60 lg:w-80 flex flex-col items-center gap-4 absolute bottom-0 lg:bottom-10 right-0 lg:-right-5
-                transition-transform duration-300 hover:rotate-[10deg]"
+                transition-transform duration-300 hover:rotate-[10deg] pointer-events-auto"
                 style={{
                   transform: `rotate(15deg) scale(${
                     windowWidth >= 1440 ? 0.9 : 0.8
@@ -291,7 +256,7 @@ export default function Home() {
               </div>
 
               <div
-                className="absolute top-1/4 left-0 transition-transform duration-300 hover:rotate-[5deg]"
+                className="absolute top-1/4 left-0 transition-transform duration-300 hover:rotate-[5deg] pointer-events-auto"
                 style={{
                   transform: `rotate(10deg) scale(${
                     windowWidth >= 1440 ? 0.9 : 0.8
@@ -325,7 +290,7 @@ export default function Home() {
               </div>
 
               <div
-                className="w-72 lg:w-96 absolute bottom-48 lg:bottom-72 left-0 lg:-left-10 font-minecraft transition-transform duration-300 hover:rotate-[-10deg]"
+                className="w-72 lg:w-96 absolute bottom-48 lg:bottom-72 left-0 lg:-left-10 font-minecraft transition-transform duration-300 hover:rotate-[-10deg] pointer-events-auto"
                 style={{
                   transform: `rotate(-15deg) scale(${
                     windowWidth >= 1440 ? 0.9 : 0.8
@@ -338,7 +303,7 @@ export default function Home() {
               </div>
 
               <div
-                className="font-minecraft absolute bottom-20 left-0 transition-transform duration-300 hover:rotate-[5deg]"
+                className="font-minecraft absolute bottom-20 left-0 transition-transform duration-300 hover:rotate-[5deg] pointer-events-auto"
                 style={{
                   transform: `rotate(10deg) scale(${
                     windowWidth >= 1440 ? 0.9 : 0.8
@@ -351,7 +316,7 @@ export default function Home() {
               </div>
 
               <div
-                className="font-minecraft absolute bottom-0 left-20 lg:left-40 transition-transform duration-300 hover:rotate-[-20deg]"
+                className="font-minecraft absolute bottom-0 left-20 lg:left-40 transition-transform duration-300 hover:rotate-[-20deg] pointer-events-auto"
                 style={{
                   transform: `rotate(-10deg) scale(${
                     windowWidth >= 1440 ? 0.9 : 0.8
@@ -366,7 +331,7 @@ export default function Home() {
           ) : (
             <>
               <Card
-                className={`p-2 absolute transition-transform duration-300 hover:rotate-[-20deg]`}
+                className={`p-2 absolute transition-transform duration-300 hover:rotate-[-20deg] pointer-events-auto`}
                 bg="#fefcd0"
                 shadowColor="#c381b5"
                 style={{
@@ -390,7 +355,7 @@ export default function Home() {
               </Card>
 
               <div
-                className={`flex flex-col items-center gap-4 absolute transition-transform duration-300 hover:rotate-[10deg]`}
+                className={`flex flex-col items-center gap-4 absolute transition-transform duration-300 hover:rotate-[10deg] pointer-events-auto`}
                 style={{
                   bottom: bgElements?.form.bottom,
                   right: bgElements?.form.right,
@@ -424,7 +389,7 @@ export default function Home() {
               </div>
 
               <div
-                className={`absolute transition-transform duration-300 hover:rotate-[5deg]`}
+                className={`absolute transition-transform duration-300 hover:rotate-[5deg] pointer-events-auto`}
                 style={{
                   top: bgElements?.accordion.top,
                   left: bgElements?.accordion.left,
@@ -461,7 +426,7 @@ export default function Home() {
               </div>
 
               <div
-                className={`absolute font-minecraft transition-transform duration-300 hover:rotate-[-10deg]`}
+                className={`absolute font-minecraft transition-transform duration-300 hover:rotate-[-10deg] pointer-events-auto`}
                 style={{
                   bottom: bgElements?.progressBar.bottom,
                   left: bgElements?.progressBar.left,
@@ -477,7 +442,7 @@ export default function Home() {
               </div>
 
               <div
-                className={`font-minecraft absolute transition-transform duration-300 hover:rotate-[5deg]`}
+                className={`font-minecraft absolute transition-transform duration-300 hover:rotate-[5deg] pointer-events-auto`}
                 style={{
                   bottom: bgElements?.bubbleLeft.bottom,
                   left: bgElements?.bubbleLeft.left,
@@ -492,7 +457,7 @@ export default function Home() {
               </div>
 
               <div
-                className={`font-minecraft absolute transition-transform duration-300 hover:rotate-[-20deg]`}
+                className={`font-minecraft absolute transition-transform duration-300 hover:rotate-[-20deg] pointer-events-auto`}
                 style={{
                   bottom: bgElements?.bubbleRight.bottom,
                   left: bgElements?.bubbleRight.left,
