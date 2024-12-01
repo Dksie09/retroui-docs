@@ -13,6 +13,7 @@
     "framer-motion": "^11.2.14",
     "next": "14.2.4",
     "pixel-retroui": "^1.0.50",
+    "prism-react-renderer": "^2.4.0",
     "react": "^18",
     "react-dom": "^18"
   },
