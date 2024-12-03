@@ -6,8 +6,74 @@ import "pixel-retroui/dist/index.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Retro UI",
-  description: "component library for creating pixel interfaces",
+  title: "Retro UI - Pixelated React Components",
+  description:
+    "A modern React component library for creating beautiful pixel-perfect retro interfaces. Build nostalgic UIs with TypeScript and Tailwind support.",
+  metadataBase: new URL("https://www.retroui.io"),
+  keywords: [
+    "react",
+    "ui library",
+    "pixel art",
+    "retro design",
+    "react components",
+    "tailwindcss",
+    "typescript",
+    "pixel perfect",
+    "retro ui",
+    "pixel ui",
+  ],
+  authors: [{ name: "RetroUI Team" }],
+  creator: "RetroUI Team",
+  publisher: "RetroUI",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.retroui.io",
+    siteName: "Retro UI",
+    title: "Retro UI - Build Pixel-Perfect React Interfaces",
+    description:
+      "Create beautiful retro-styled interfaces with our React component library. Pixel-perfect design meets modern development.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Retro UI - React Component Library",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Retro UI - Pixelated React Components",
+    description:
+      "Build nostalgic interfaces with our pixel-perfect React component library",
+    images: ["/twitter-image.png"],
+    creator: "@duckwhocodes",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: "MXm7iq4vzEvSALdsCJ0-M-9v3wQ90Zk2swxR4c5y7hA",
+  },
 };
 
 export default function RootLayout({

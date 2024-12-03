@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Bubble, Button } from "pixel-retroui";
-import ComponentGrid from "./ComponentGrid";
+import ComponentGrid from "../../components/ComponentGrid";
 import { ThemeOptions, themeColors } from "../themes";
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
 
 function Page() {
   const router = useRouter();

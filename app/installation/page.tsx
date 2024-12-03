@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Card } from "pixel-retroui";
 import React, { useState, useEffect, useRef } from "react";
-import CopyableCode from "../components/CopyableCode";
-import Navbar from "../components/Navbar";
+import CopyableCode from "../../components/CopyableCode";
+import Navbar from "../../components/Navbar";
 
 function Page() {
   const router = useRouter();

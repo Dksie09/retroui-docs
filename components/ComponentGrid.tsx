@@ -17,7 +17,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "pixel-retroui";
-import { ThemeOptions, themeColors } from "../themes";
+import { ThemeOptions, themeColors } from "../app/themes";
 import { useRouter } from "next/navigation";
 
 interface ComponentGridProps {
