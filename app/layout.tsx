@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Retro UI - Pixelated React Components",
     description:
       "Build nostalgic interfaces with our pixel-perfect React component library",
-    images: ["/twitter-image.png"],
+    images: ["https://www.retroui.io/twitter-image.png"], // Full URL
     creator: "@duckwhocodes",
   },
   robots: {
