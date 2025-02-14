@@ -37,7 +37,7 @@ function Page() {
   bg="${colors.bg}"
   textColor="${colors.text}"
   borderColor="${colors.border}"
-  shadowColor="${colors.shadow}"
+  shadow="${colors.shadow}"
 >
   Themed Button
 </Button>`;
