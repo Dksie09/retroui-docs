@@ -19,6 +19,8 @@ function Page() {
     { id: "initialize", title: "Initialize" },
     { id: "installation", title: "Installation" },
     { id: "configuration", title: "Configuration" },
+    { id: "cli-setup", title: "CLI Setup" },
+    { id: "manual-setup", title: "Manual Setup" },
     { id: "basic-usage", title: "Basic Usage" },
     { id: "customization", title: "Customization" },
     { id: "troubleshooting", title: "Troubleshooting" },
@@ -30,11 +32,11 @@ function Page() {
       title: "Getting server error",
       content: (
         <>
-          You might wana add{" "}
+          You might need to add{" "}
           <span className="font-mono bg-gray-200 p-1 rounded-md">
             &quot;use client&quot;;
           </span>{" "}
-          on top of your page.
+          on top of your page when using React Server Components in Next.js.
         </>
       ),
     },
@@ -42,23 +44,44 @@ function Page() {
       title: "Fonts not loading",
       content: (
         <>
-          Ensure the paths to the font files are correct and that you&apos;ve
-          imported the CSS file.
-          <br />{" "}
-          <p className=" mt-4">
+          For the most reliable font loading, use our CLI setup:{" "}
+          <span className="font-mono bg-gray-200 p-1 rounded-md">
+            npx pixel-retroui
+          </span>
+          <br />
+          <br />
+          If you&apos;re using manual setup, make sure you&apos;ve imported both
+          CSS files.
+          <br />
+          <br />
+          <p className="mt-2">
             Use{" "}
             <span className="font-mono bg-gray-200 p-1 rounded-md">
               font-minecraft
             </span>{" "}
-            to add minecraft font to your text.
+            to add Minecraft font to your text.
           </p>
         </>
       ),
     },
     {
       title: "Components not styled correctly",
-      content:
-        "Make sure you've imported the library's CSS file and that it's not being overridden by other styles.",
+      content: (
+        <>
+          Make sure you&apos;ve imported the library&apos;s CSS file in your
+          main CSS file:
+          <br />
+          <br />
+          <span className="font-mono bg-gray-200 p-1 rounded-md block mb-2">
+            @import &apos;pixel-retroui/dist/index.css&apos;;
+          </span>
+          If you&apos;re using the Minecraft font:
+          <br />
+          <span className="font-mono bg-gray-200 p-1 rounded-md block">
+            @import &apos;pixel-retroui/dist/fonts.css&apos;;
+          </span>
+        </>
+      ),
     },
     {
       title: "Tailwind classes not working",
@@ -68,7 +91,17 @@ function Page() {
           <span className="font-mono bg-gray-200 p-1 rounded-md">
             important: true
           </span>{" "}
-          in tailwind.config.ts.
+          in tailwind.config.ts to ensure our styles don&apos;t get overridden.
+        </>
+      ),
+    },
+    {
+      title: "TypeScript errors with Next.js",
+      content: (
+        <>
+          If you&apos;re seeing TypeScript errors with Next.js 19+ or React 19+,
+          make sure you&apos;re using pixel-retroui v2.0.0 or higher, which
+          includes improved TypeScript compatibility.
         </>
       ),
     },
@@ -209,7 +242,7 @@ function Page() {
                       className="mt-3 md:mt-5"
                     />
                     <p className="text-xs md:text-sm mt-2 md:mt-3 ml-1">
-                      to add tailwind, you can follow{" "}
+                      To add tailwind, you can follow{" "}
                       <a
                         href="https://tailwindcss.com/docs/guides/create-react-app"
                         className="underline"
@@ -243,6 +276,11 @@ function Page() {
                   code={`npm i pixel-retroui@latest`}
                   className="w-full md:w-1/2 mt-3 md:mt-5"
                 />
+                <p className="mt-2 md:mt-4 text-xs md:text-sm">
+                  RetroUI v2.0.0 gives you the option to use the default
+                  Minecraft font or your own fonts. You can select your
+                  preference during setup.
+                </p>
               </div>
             </div>
             <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
@@ -255,70 +293,129 @@ function Page() {
                   Configuration
                 </h1>
               </div>
-              <div className="mt-4 md:mt-6 md:ml-12">
-                <h2 className="font-minecraft-bold text-xl md:text-2xl">
-                  1. Importing Styles
-                </h2>
-                <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                  Add the following import to your main CSS file. <br />
-                  <p className=" mt-3">
-                    <span className=" bg-slate-300 p-1 rounded-md">
-                      globals.css
-                    </span>{" "}
-                    in Next.js and{" "}
-                    <span className="bg-slate-300 p-1 rounded-md">
-                      index.css
-                    </span>{" "}
-                    in React
-                  </p>
+
+              <p className="mt-2 md:mt-4 md:ml-12 text-xs md:text-sm">
+                Choose one of the following setup methods:
+              </p>
+            </div>
+
+            <div id="cli-setup" className="mt-6 md:mt-10 md:ml-12">
+              <h2 className="font-minecraft-bold text-xl md:text-2xl">
+                CLI Setup (Recommended)
+              </h2>
+              <p className="mt-2 md:mt-4 text-xs md:text-sm">
+                Run the CLI setup tool to configure RetroUI for your project:
+              </p>
+              <CopyableCode
+                code="npx pixel-retroui"
+                className="w-full md:w-1/2 mt-3 md:mt-5"
+              />
+              <p className="mt-2 md:mt-4 text-xs md:text-sm">
+                The CLI will guide you through selecting font options and create
+                the necessary setup files for your project.
+              </p>
+              <p className="mt-8 text-xs md:text-sm">
+                After setup, import the generated file in your Next.js layout
+                file:
+              </p>
+              <CopyableCode
+                code="import '@/lib/pixel-retroui-setup.js';"
+                className="w-full md:w-1/2 mt-3 md:mt-5"
+              />
+            </div>
+
+            <div id="manual-setup" className="mt-8 md:mt-10 md:ml-12">
+              <h2 className="font-minecraft-bold text-xl md:text-2xl">
+                Manual Setup
+              </h2>
+              <p className="mt-2 md:mt-4 text-xs md:text-sm">
+                Add the following import to your main CSS file:
+                <br />
+                <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                  globals.css
+                </span>{" "}
+                in Next.js or{" "}
+                <span className="bg-slate-300 p-1 rounded-md inline-block">
+                  index.css
+                </span>{" "}
+                in React
+              </p>
+
+              <CopyableCode
+                code="@import 'pixel-retroui/dist/index.css';"
+                className="w-full md:w-1/2 mt-3 md:mt-5"
+              />
+
+              <p className="mt-8 text-xs md:text-sm">
+                If you want to use the default Minecraft font, add this as well:
+              </p>
+              <CopyableCode
+                code="@import 'pixel-retroui/dist/fonts.css';"
+                className="w-full md:w-1/2 mt-3 md:mt-5"
+              />
+
+              <div className="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-r ">
+                <p className="mt-2 text-xs md:text-sm text-yellow-700">
+                  Remember to add{" "}
+                  <code className="bg-yellow-100 px-1 py-0.5 rounded font-mono">
+                    use client
+                  </code>{" "}
+                  at the top of your files when using RetroUI components in
+                  Next.js.
                 </p>
                 <CopyableCode
-                  code="@import 'pixel-retroui/dist/index.css';"
-                  className="w-full md:w-1/2 mt-3 md:mt-5"
+                  code={`"use client";
+
+import { Button, Card } from 'pixel-retroui';`}
+                  className="w-full mt-3"
                 />
               </div>
+            </div>
 
-              <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
-              <div id="basic-usage" className="mt-6 md:mt-10">
-                <h1 className="font-minecraft-bold text-2xl md:text-3xl">
-                  Basic Usage
-                </h1>
-                <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                  Now you can use the{" "}
-                  <a href="/components" className=" underline">
-                    components
-                  </a>{" "}
-                  in your React application:
-                </p>
-                <CopyableCode
-                  code={`import React from 'react';
-import { Button } from 'pixel-retroui';
+            <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
+            <div id="basic-usage" className="mt-6 md:mt-10">
+              <h1 className="font-minecraft-bold text-2xl md:text-3xl">
+                Basic Usage
+              </h1>
+              <p className="mt-2 md:mt-4 text-xs md:text-sm">
+                Now you can use the{" "}
+                <a href="/components" className="underline">
+                  components
+                </a>{" "}
+                in your React application:
+              </p>
+              <CopyableCode
+                code={`import React from 'react';
+import { Button, Card } from 'pixel-retroui';
 
 function App() {
   return (
     <div>
       <h1 className="text-2xl font-minecraft mb-4">Welcome to My Retro App</h1>
+      <Card className="p-4 mb-4">
+        <h2>This is a pixel-styled card</h2>
+        <p>You can put anything inside!</p>
+      </Card>
       <Button>Click me!</Button>
     </div>
   );
 }
 
 export default App;`}
-                  className="w-full md:w-3/4 mt-3 md:mt-5"
-                />
-              </div>
-              <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
-              <div id="customization" className="mt-6 md:mt-10">
-                <h1 className="font-minecraft-bold text-2xl md:text-3xl">
-                  Customization
-                </h1>
-                <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                  RetroUI components can be customized using props and
-                  TailwindCSS classes. Here&apos;s an example of customizing a
-                  button:
-                </p>
-                <CopyableCode
-                  code={`<Button 
+                className="w-full md:w-3/4 mt-3 md:mt-5"
+              />
+            </div>
+            <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
+            <div id="customization" className="mt-6 md:mt-10">
+              <h1 className="font-minecraft-bold text-2xl md:text-3xl">
+                Customization
+              </h1>
+              <p className="mt-2 md:mt-4 text-xs md:text-sm">
+                RetroUI components can be customized using props and TailwindCSS
+                classes. Here&apos;s an example of customizing a button:
+              </p>
+              <CopyableCode
+                code={`<Button 
   bg="#c381b5" 
   textColor="#fefcd0"
   shadow="#fefcd0"
@@ -326,16 +423,16 @@ export default App;`}
 >
   Custom Button
 </Button>`}
-                  className="w-full md:w-3/4 mt-3 md:mt-5"
-                />
-              </div>
+                className="w-full md:w-3/4 mt-3 md:mt-5"
+              />
             </div>
+
             <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
             <div id="troubleshooting" className="mt-6 md:mt-10">
               <h1 className="font-minecraft-bold text-2xl md:text-3xl mb-6">
                 Troubleshooting
               </h1>
-              <div className=" space-y-8">
+              <div className="space-y-8">
                 {troubleshootingItems.map((item, index) => (
                   <Card key={index} className="lg:w-1/2 overflow-hidden">
                     <button
@@ -354,7 +451,8 @@ export default App;`}
                         <Image
                           src="/arrow.svg"
                           alt="Toggle"
-                          layout="fill"
+                          width={24}
+                          height={24}
                           objectFit="contain"
                         />
                       </div>
