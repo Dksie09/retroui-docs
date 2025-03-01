@@ -137,10 +137,16 @@ function Page() {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, offset: number = 80) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
   return (
@@ -323,8 +329,9 @@ function Page() {
                 className="w-full md:w-1/2 mt-3 md:mt-5"
               />
             </div>
+            <h2 className="font-minecraft-bold mt-8 md:mt-10 md:ml-12">Or</h2>
 
-            <div id="manual-setup" className="mt-8 md:mt-10 md:ml-12">
+            <div id="manual-setup" className="mt-8  md:ml-12">
               <h2 className="font-minecraft-bold text-xl md:text-2xl">
                 Manual Setup
               </h2>
@@ -340,35 +347,23 @@ function Page() {
                 </span>{" "}
                 in React
               </p>
-
               <CopyableCode
                 code="@import 'pixel-retroui/dist/index.css';"
                 className="w-full md:w-1/2 mt-3 md:mt-5"
               />
-
-              <p className="mt-8 text-xs md:text-sm">
-                If you want to use the default Minecraft font, add this as well:
-              </p>
-              <CopyableCode
-                code="@import 'pixel-retroui/dist/fonts.css';"
-                className="w-full md:w-1/2 mt-3 md:mt-5"
-              />
-
-              <div className="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-r ">
+              <div className="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-r max-w-5xl">
+                <h3 className="font-minecraft-bold text-sm md:text-base text-yellow-800">
+                  In manual setup,
+                </h3>
                 <p className="mt-2 text-xs md:text-sm text-yellow-700">
-                  Remember to add{" "}
-                  <code className="bg-yellow-100 px-1 py-0.5 rounded font-mono">
-                    use client
-                  </code>{" "}
-                  at the top of your files when using RetroUI components in
-                  Next.js.
+                  If you want to use the default Minecraft font, add this to
+                  your CSS too:
+                  <br />
+                  <CopyableCode
+                    code={" @import 'pixel-retroui/dist/fonts.css';"}
+                    className=" mt-3"
+                  />
                 </p>
-                <CopyableCode
-                  code={`"use client";
-
-import { Button, Card } from 'pixel-retroui';`}
-                  className="w-full mt-3"
-                />
               </div>
             </div>
 
