@@ -537,7 +537,7 @@ export default App;`}
                 Next Steps
               </h1>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="p-5 border-r border-black">
+                <div className="p-5 md:border-r md:border-black">
                   <h3 className="font-minecraft-bold mb-3">Explore</h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start">
