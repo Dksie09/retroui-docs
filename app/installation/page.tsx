@@ -349,13 +349,10 @@ Which framework are you using?
                     3
                   </div> */}
                   <div className="w-full">
-                    <p className="text-xs md:text-sm font-minecraft-bold">
-                      3. Import the generated file
-                    </p>
-
                     <div className="flex flex-col mt-4 md:mt-6 w-full">
                       <div className="w-full md:w-1/2">
                         <p className="text-xs md:text-sm mb-2">
+                          3.{" "}
                           <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
                             For Next.js
                           </span>
