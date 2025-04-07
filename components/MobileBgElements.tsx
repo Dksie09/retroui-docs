@@ -83,7 +83,7 @@ export default function MobileBgElements() {
       </div>
 
       {/* Separator */}
-      <div
+      {/* <div
         className="w-full max-w-sm mt-8"
         style={{
           height: "0px",
@@ -94,10 +94,10 @@ export default function MobileBgElements() {
           borderWidth: "4px",
           borderSpacing: "8px",
         }}
-      ></div>
+      ></div> */}
 
       {/* Form */}
-      <div className="col-span-2 flex flex-col items-center gap-4 my-10">
+      {/* <div className="col-span-2 flex flex-col items-center gap-4 my-10">
         <div className="flex flex-col gap-2 items-center">
           <h1 className="font-minecraft text-xl font-black">
             Request A Component!
@@ -123,7 +123,7 @@ export default function MobileBgElements() {
             Cancel
           </Button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
