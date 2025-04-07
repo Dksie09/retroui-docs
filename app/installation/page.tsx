@@ -370,26 +370,6 @@ Which framework are you using?
                           className="mt-3 md:mt-5"
                         />
                       </div>
-                      <div className="w-full md:w-1/2 mt-3">
-                        <p className="text-xs md:text-sm mb-2">
-                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
-                            For React
-                          </span>
-                          , in your{" "}
-                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
-                            app.js
-                          </span>{" "}
-                          or{" "}
-                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
-                            index.js
-                          </span>{" "}
-                          file:
-                        </p>
-                        <CopyableCode
-                          code={`npx create-react-app my-app --template typescript`}
-                          className="mt-3 md:mt-5"
-                        />
-                      </div>
                     </div>
 
                     <div className="mt-4 p-3 flex flex-col gap-2 bg-green-50 border-l-4 border-green-500 rounded-r text-xs md:text-sm">
