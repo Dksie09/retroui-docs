@@ -24,6 +24,7 @@ function Page() {
     border: "#000000",
     shadow: "#000000",
   });
+  const [isCollapsible, setIsCollapsible] = useState(true);
 
   const handleThemeChange = (theme: ThemeOptions | "custom") => {
     setSelectedTheme(theme);
@@ -44,6 +45,7 @@ function Page() {
   textColor="${colors.text}"
   borderColor="${colors.border}"
   shadowColor="${colors.shadow}"
+  collapsible={${isCollapsible}}
 >
   <AccordionItem value="item-1">
     <AccordionTrigger>Section 1</AccordionTrigger>
@@ -74,7 +76,9 @@ function Page() {
         <h1 className="font-minecraft-bold text-5xl">Accordion</h1>
         <p className="mt-4">
           A customizable, pixel-art styled accordion component for organizing
-          content into collapsible sections.
+          content into collapsible sections. Supports both classic accordion
+          mode (one section open at a time) and independent sections mode
+          (multiple sections can be open simultaneously).
         </p>
         <div className="mt-12">
           <h1 className="font-minecraft-bold text-lg ml-2">Basic Usage</h1>
@@ -142,9 +146,11 @@ function App() {
                   <tr className="border-b">
                     <td className="px-4 py-2">collapsible</td>
                     <td className="px-4 py-2">boolean</td>
-                    <td className="px-4 py-2">false</td>
+                    <td className="px-4 py-2">true</td>
                     <td className="px-4 py-2">
-                      If true, allows all items to be closed
+                      If true (default), only one item can be open at a time
+                      (classic accordion). If false, multiple items can be open
+                      simultaneously (independent sections).
                     </td>
                   </tr>
                   <tr>
@@ -210,54 +216,68 @@ function App() {
                     )}
                   </div>
                 </div>
-                {selectedTheme === "custom" && (
-                  <div className="flex flex-col gap-2 items-end absolute top-0 right-0">
-                    <div className="flex">
-                      <p>Bg color</p>
+                <div className="absolute top-0 right-0 flex flex-col items-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span>Collapsible Mode:</span>
+                    <label className="inline-flex items-center cursor-pointer">
                       <input
-                        type="color"
-                        value={customColors.bg}
-                        className="h-6 w-6"
-                        onChange={(e) =>
-                          handleCustomColorChange("bg", e.target.value)
-                        }
+                        type="checkbox"
+                        checked={isCollapsible}
+                        onChange={() => setIsCollapsible(!isCollapsible)}
+                        className="sr-only peer"
                       />
-                    </div>
-                    <div className="flex">
-                      <p>Text color</p>
-                      <input
-                        type="color"
-                        value={customColors.text}
-                        className="h-6 w-6"
-                        onChange={(e) =>
-                          handleCustomColorChange("text", e.target.value)
-                        }
-                      />
-                    </div>
-                    <div className="flex">
-                      <p>Border color</p>
-                      <input
-                        type="color"
-                        value={customColors.border}
-                        className="h-6 w-6"
-                        onChange={(e) =>
-                          handleCustomColorChange("border", e.target.value)
-                        }
-                      />
-                    </div>
-                    <div className="flex">
-                      <p>Shadow color</p>
-                      <input
-                        type="color"
-                        value={customColors.shadow}
-                        className="h-6 w-6"
-                        onChange={(e) =>
-                          handleCustomColorChange("shadow", e.target.value)
-                        }
-                      />
-                    </div>
+                      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    </label>
                   </div>
-                )}
+                  {selectedTheme === "custom" && (
+                    <div className="flex flex-col gap-2 items-end">
+                      <div className="flex">
+                        <p>Bg color</p>
+                        <input
+                          type="color"
+                          value={customColors.bg}
+                          className="h-6 w-6"
+                          onChange={(e) =>
+                            handleCustomColorChange("bg", e.target.value)
+                          }
+                        />
+                      </div>
+                      <div className="flex">
+                        <p>Text color</p>
+                        <input
+                          type="color"
+                          value={customColors.text}
+                          className="h-6 w-6"
+                          onChange={(e) =>
+                            handleCustomColorChange("text", e.target.value)
+                          }
+                        />
+                      </div>
+                      <div className="flex">
+                        <p>Border color</p>
+                        <input
+                          type="color"
+                          value={customColors.border}
+                          className="h-6 w-6"
+                          onChange={(e) =>
+                            handleCustomColorChange("border", e.target.value)
+                          }
+                        />
+                      </div>
+                      <div className="flex">
+                        <p>Shadow color</p>
+                        <input
+                          type="color"
+                          value={customColors.shadow}
+                          className="h-6 w-6"
+                          onChange={(e) =>
+                            handleCustomColorChange("shadow", e.target.value)
+                          }
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="flex justify-center items-center my-24">
                 <Accordion
@@ -281,6 +301,7 @@ function App() {
                       ? customColors.shadow
                       : themeColors[selectedTheme as ThemeOptions].shadow
                   }
+                  collapsible={isCollapsible}
                   className="sm:w-1/3 w-1/2"
                 >
                   <AccordionItem value="item-1">
@@ -363,6 +384,56 @@ function App() {
                   >
                     <AccordionTrigger>Section 3</AccordionTrigger>
                     <AccordionContent>Content for section 3</AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </Card>
+
+            <h2 className="font-minecraft text-md ml-2 mt-8">
+              Independent Sections
+            </h2>
+            <Card
+              className={`w-full min-h-56 relative ${
+                String(selectedTheme) === "dark" ? "bg-black text-white" : ""
+              }`}
+            >
+              <CopyableCode
+                code={`<Accordion collapsible={false}>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>FAQ Item 1</AccordionTrigger>
+    <AccordionContent>With collapsible=false, multiple items can be open at once.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>FAQ Item 2</AccordionTrigger>
+    <AccordionContent>Each item toggles independently of others.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>FAQ Item 3</AccordionTrigger>
+    <AccordionContent>Perfect for FAQ sections or documentation.</AccordionContent>
+  </AccordionItem>
+</Accordion>`}
+              />
+              <div className="w-full flex flex-col gap-4 items-center py-20 justify-center relative">
+                <p className="absolute top-2 left-2">Preview:</p>
+                <Accordion className="w-1/3" collapsible={false}>
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>FAQ Item 1</AccordionTrigger>
+                    <AccordionContent>
+                      With collapsible=false, multiple items can be open at
+                      once.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger>FAQ Item 2</AccordionTrigger>
+                    <AccordionContent>
+                      Each item toggles independently of others.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger>FAQ Item 3</AccordionTrigger>
+                    <AccordionContent>
+                      Perfect for FAQ sections or documentation.
+                    </AccordionContent>
                   </AccordionItem>
                 </Accordion>
               </div>

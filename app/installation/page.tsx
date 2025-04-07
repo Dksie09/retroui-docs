@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Card } from "pixel-retroui";
+import { Button, Card } from "pixel-retroui";
 import React, { useState, useEffect, useRef } from "react";
 import CopyableCode from "../../components/CopyableCode";
 import Navbar from "../../components/Navbar";
@@ -17,8 +17,7 @@ function Page() {
 
   const sections = [
     { id: "initialize", title: "Initialize" },
-    { id: "installation", title: "Installation" },
-    { id: "configuration", title: "Configuration" },
+    { id: "setup", title: "Setup" },
     { id: "cli-setup", title: "CLI Setup" },
     { id: "manual-setup", title: "Manual Setup" },
     { id: "basic-usage", title: "Basic Usage" },
@@ -29,18 +28,6 @@ function Page() {
 
   const troubleshootingItems = [
     {
-      title: "Getting server error",
-      content: (
-        <>
-          You might need to add{" "}
-          <span className="font-mono bg-gray-200 p-1 rounded-md">
-            &quot;use client&quot;;
-          </span>{" "}
-          on top of your page when using React Server Components in Next.js.
-        </>
-      ),
-    },
-    {
       title: "Fonts not loading",
       content: (
         <>
@@ -50,9 +37,15 @@ function Page() {
           </span>
           <br />
           <br />
-          If you&apos;re using manual setup, make sure you&apos;ve imported both
-          CSS files.
-          <br />
+          In manual, make sure you&apos;re using the correct path in your
+          imports:
+          <span className="font-mono bg-gray-200 p-1 rounded-md block mt-2">
+            @import &apos;pixel-retroui/dist/fonts.css&apos;;
+          </span>
+          <span className="mt-2 text-red-600 block">Common mistake:</span>
+          <span className="font-mono bg-gray-200 p-1 rounded-md block mt-1 line-through">
+            @import &apos;pixel-retroui/dist.fonts.css&apos;;
+          </span>
           <br />
           <p className="mt-2">
             Use{" "}
@@ -100,7 +93,7 @@ function Page() {
       content: (
         <>
           If you&apos;re seeing TypeScript errors with Next.js 19+ or React 19+,
-          make sure you&apos;re using pixel-retroui v2.0.0 or higher, which
+          make sure you&apos;re using pixel-retroui v2.1.0 or higher, which
           includes improved TypeScript compatibility.
         </>
       ),
@@ -229,20 +222,32 @@ function Page() {
                 </h1>
               </div>
               <p className="mt-2 md:mt-4 md:ml-12 text-xs md:text-sm">
-                Start by creating a new project. The setup requires a NextJS/
-                ReactJS app with Typescript & Tailwind.
+                Start by creating a new project. The setup requires a Next.js/
+                React app with Typescript & Tailwind.
               </p>
               <div className="md:ml-12">
                 <div className="flex flex-col mt-4 md:mt-6 w-full">
                   <div className="w-full md:w-1/2">
-                    <h2 className="text-xs">For NextJS:</h2>
+                    <h2 className="text-xs">
+                      For{" "}
+                      <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                        Next.js
+                      </span>
+                      :
+                    </h2>
                     <CopyableCode
                       code={`npx create-next-app@latest my-app --typescript --tailwindcss`}
                       className="mt-3 md:mt-5"
                     />
                   </div>
                   <div className="w-full md:w-1/2 mt-3">
-                    <h2 className="text-xs mt-2 md:mt-4">For ReactJS:</h2>
+                    <h2 className="text-xs mt-2 md:mt-4">
+                      For{" "}
+                      <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                        React
+                      </span>
+                      :
+                    </h2>
                     <CopyableCode
                       code={`npx create-react-app my-app --template typescript`}
                       className="mt-3 md:mt-5"
@@ -251,7 +256,7 @@ function Page() {
                       To add tailwind, you can follow{" "}
                       <a
                         href="https://tailwindcss.com/docs/guides/create-react-app"
-                        className="underline"
+                        className="text-blue-600 underline cursor-pointer"
                         target="_blank"
                       >
                         these
@@ -263,40 +268,13 @@ function Page() {
               </div>
             </div>
             <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
-            <div id="installation" className="mt-6 md:mt-10">
+            <div id="setup" className="mt-6 md:mt-10">
               <div className="flex items-center">
                 <div className="hidden md:flex bg-black text-white rounded-full w-10 h-10 items-center justify-center mr-4 flex-shrink-0">
                   2
                 </div>
                 <h1 className="font-minecraft-bold text-2xl md:text-3xl">
-                  Installation
-                </h1>
-              </div>
-              <div className="md:ml-12">
-                <div>
-                  <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                    Install RetroUI using npm:
-                  </p>
-                </div>
-                <CopyableCode
-                  code={`npm i pixel-retroui@latest`}
-                  className="w-full md:w-1/2 mt-3 md:mt-5"
-                />
-                <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                  RetroUI v2.0.0 gives you the option to use the default
-                  Minecraft font or your own fonts. You can select your
-                  preference during setup.
-                </p>
-              </div>
-            </div>
-            <hr className="mt-6 mb-6 md:mt-10 md:mb-10 h-1" color="black" />
-            <div id="configuration" className="mt-6 md:mt-10">
-              <div className="flex items-center">
-                <div className="hidden md:flex bg-black text-white rounded-full w-10 h-10 items-center justify-center mr-4 flex-shrink-0">
-                  3
-                </div>
-                <h1 className="font-minecraft-bold text-2xl md:text-3xl">
-                  Configuration
+                  Setup
                 </h1>
               </div>
 
@@ -309,25 +287,125 @@ function Page() {
               <h2 className="font-minecraft-bold text-xl md:text-2xl">
                 CLI Setup (Recommended)
               </h2>
-              <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                Run the CLI setup tool to configure RetroUI for your project:
-              </p>
-              <CopyableCode
-                code="npx pixel-retroui"
-                className="w-full md:w-1/2 mt-3 md:mt-5"
-              />
-              <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                The CLI will guide you through selecting font options and create
-                the necessary setup files for your project.
-              </p>
-              <p className="mt-8 text-xs md:text-sm">
-                After setup, import the generated file in your Next.js layout
-                file:
-              </p>
-              <CopyableCode
-                code="import '@/lib/pixel-retroui-setup.js';"
-                className="w-full md:w-1/2 mt-3 md:mt-5"
-              />
+
+              <div className="mt-4 space-y-6">
+                {/* Step 1 */}
+                <div className="flex">
+                  {/* <div className="hidden md:flex bg-black text-white rounded-full w-6 h-6 items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    1
+                  </div> */}
+                  <div className="w-full">
+                    <h2 className="text-xs md:text-sm  pb-1">
+                      1. Run the CLI setup tool
+                    </h2>
+                    <CopyableCode
+                      code="npx pixel-retroui"
+                      className="w-full md:w-1/2 mt-2"
+                    />
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex">
+                  {/* <div className="hidden md:flex bg-black text-white rounded-full w-6 h-6 items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    2
+                  </div> */}
+                  <div>
+                    <p className="text-xs md:text-sm ">
+                      2.
+                      <span className="">
+                        {" "}
+                        The CLI will automatically install the package and
+                        configure files based on your preferences.
+                      </span>
+                    </p>
+
+                    <div className="mt-4 p-3 bg-gray-100 rounded-md border border-gray-200 text-xs md:text-sm">
+                      <div className="font-minecraft text-xs opacity-75 mb-2">
+                        CLI output preview:
+                      </div>
+                      <pre className="text-xs overflow-x-auto">
+                        {`      ▄▀▄─────▄▀▄
+     ▄█░░▀▀▀▀▀░░█▄
+─▄▄──█░░░░░░░░░░░█──▄▄
+█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+Setting up pixel-retroui...
+Installing pixel-retroui...
+Would you like to use the default Minecraft font?
+Which framework are you using?
+.
+.
+.
+🎉 Setup complete! Enjoy using pixel-retroui!
+`}
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex">
+                  {/* <div className="hidden md:flex bg-black text-white rounded-full w-6 h-6 items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    3
+                  </div> */}
+                  <div className="w-full">
+                    <p className="text-xs md:text-sm font-minecraft-bold">
+                      3. Import the generated file
+                    </p>
+
+                    <div className="flex flex-col mt-4 md:mt-6 w-full">
+                      <div className="w-full md:w-1/2">
+                        <p className="text-xs md:text-sm mb-2">
+                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                            For Next.js
+                          </span>
+                          , in your{" "}
+                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                            layout.tsx
+                          </span>{" "}
+                          file:
+                        </p>
+                        <CopyableCode
+                          code={`import '@/lib/pixel-retroui-setup.js';`}
+                          className="mt-3 md:mt-5"
+                        />
+                      </div>
+                      <div className="w-full md:w-1/2 mt-3">
+                        <p className="text-xs md:text-sm mb-2">
+                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                            For React
+                          </span>
+                          , in your{" "}
+                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                            app.js
+                          </span>{" "}
+                          or{" "}
+                          <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
+                            index.js
+                          </span>{" "}
+                          file:
+                        </p>
+                        <CopyableCode
+                          code={`npx create-react-app my-app --template typescript`}
+                          className="mt-3 md:mt-5"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-4 p-3 flex flex-col gap-2 bg-green-50 border-l-4 border-green-500 rounded-r text-xs md:text-sm">
+                      <p className="text-green-800 ">
+                        <span className="font-minecraft-bold">
+                          Setup Complete!
+                        </span>
+                      </p>
+                      <p className="text-green-800 ">
+                        You&apos;re now ready to use RetroUI components in your
+                        project.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <h2 className="font-minecraft-bold mt-8 md:mt-10 md:ml-12">Or</h2>
 
@@ -336,7 +414,14 @@ function Page() {
                 Manual Setup
               </h2>
               <p className="mt-2 md:mt-4 text-xs md:text-sm">
-                Add the following import to your main CSS file:
+                1. Install RetroUI:
+              </p>
+              <CopyableCode
+                code={`npm i pixel-retroui@latest`}
+                className="w-full md:w-1/2 mt-3 md:mt-5"
+              />
+              <p className="mt-6 md:mt-4 text-xs md:text-sm">
+                2. Add the following import to your main CSS file:
                 <br />
                 <span className="bg-slate-300 p-1 rounded-md mt-2 inline-block">
                   globals.css
@@ -474,26 +559,78 @@ export default App;`}
               <h1 className="font-minecraft-bold text-2xl md:text-3xl">
                 Next Steps
               </h1>
-              <ul className="list-disc list-inside mt-2 md:mt-4 text-xs md:text-sm">
-                <li>
-                  Explore our{" "}
-                  <a href="/components" className="underline">
-                    Components
-                  </a>{" "}
-                  to see what&apos;s available
-                </li>
-                <li>
-                  Visit our{" "}
-                  <a
-                    href="https://github.com/Dksie09/RetroUI"
-                    className="underline"
-                    target="_blank"
-                  >
-                    GitHub repository
-                  </a>{" "}
-                  for the latest updates and to report issues
-                </li>
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="p-5 border-r border-black">
+                  <h3 className="font-minecraft-bold mb-3">Explore</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">→</span>
+                      <a
+                        href="/components"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Browse all components
+                      </a>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">→</span>
+                      <a
+                        href="https://github.com/Dksie09/RetroUI"
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                      >
+                        GitHub repository
+                      </a>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">→</span>
+                      <a
+                        href="https://github.com/Dksie09/retroui-docs"
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                      >
+                        Documentation source
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="p-5">
+                  <h3 className="font-minecraft-bold mb-3">Contribute</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">→</span>
+                      <a
+                        href="https://github.com/Dksie09/RetroUI/blob/main/CONTRIBUTING.md"
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                      >
+                        Contribution guidelines
+                      </a>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">→</span>
+                      <a
+                        href="https://github.com/Dksie09/RetroUI/issues"
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                      >
+                        Report issues
+                      </a>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">→</span>
+                      <a
+                        href="https://dm.new/duck"
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                      >
+                        Contact on Twitter
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
               <p className="mt-4 md:mt-6 text-xs md:text-sm">
                 Need more help? Feel free to{" "}
@@ -514,6 +651,32 @@ export default App;`}
                 </a>
                 .
               </p>
+
+              <div className="mt-8 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r max-w-5xl">
+                <h3 className="font-minecraft-bold text-sm md:text-base text-blue-800">
+                  Support the project ☕
+                </h3>
+                <p className="text-sm mb-4">
+                  If you find this library useful, consider supporting its
+                  development!
+                </p>
+                <Button
+                  bg="#5F7FFF"
+                  textColor="#FFFFFF"
+                  // as="a"
+                  // href="https://buymeacoffee.com/dakshiegoel"
+                  // target="_blank"
+                  onClick={() => {
+                    window.open(
+                      "https://buymeacoffee.com/dakshiegoel",
+                      "_blank"
+                    );
+                  }}
+                  className="inline-flex items-center"
+                >
+                  Buy me a coffee
+                </Button>
+              </div>
             </div>
           </div>
         </div>
