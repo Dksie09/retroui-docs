@@ -174,7 +174,7 @@ export default function Home() {
               shadow="#c381b5"
               className="px-2"
               onClick={() => {
-                router.push("/installation");
+                router.push("/components");
               }}
             >
               Get Started
@@ -184,9 +184,11 @@ export default function Home() {
               bg="#c381b5"
               shadow="#fefcd0"
               textColor="#fefcd0"
-              onClick={() => router.push("/components")}
+              onClick={() =>
+                window.open("https://github.com/Dksie09/RetroUI", "_blank")
+              }
             >
-              Explore components
+              GitHub
             </Button>
           </div>
         </div>
